@@ -649,5 +649,205 @@ window.POSTERS = [
   "thumb": "thumbs/drone/missions/pano.jpg",
   "png": "../out/drone/missions/pano.png",
   "svg": "../out/drone/missions/pano.svg"
+ },
+ {
+  "id": "gps/sky/constellations",
+  "name": "constellations",
+  "series": "gps",
+  "group": "sky",
+  "idea": "one system's ~30 satellites leave a thin sky → fly four (109 sats, 31 above 10° right now), each drawn from its orbit",
+  "thumb": "thumbs/gps/sky/constellations.jpg",
+  "png": "../out/gps/sky/constellations.png",
+  "svg": "../out/gps/sky/constellations.svg"
+ },
+ {
+  "id": "gps/sky/skyplot",
+  "name": "skyplot",
+  "series": "gps",
+  "group": "sky",
+  "idea": "from 52.5° N no GPS satellite crosses part of the northern sky (55° orbits) → site antennas with a clear south",
+  "thumb": "thumbs/gps/sky/skyplot.jpg",
+  "png": "../out/gps/sky/skyplot.png",
+  "svg": "../out/gps/sky/skyplot.svg"
+ },
+ {
+  "id": "gps/sky/relativity",
+  "name": "relativity",
+  "series": "gps",
+  "group": "sky",
+  "idea": "orbit clocks gain 38.6 µs a day, 11.6 km of range → tune them slow on the ground: 10.22999999543 MHz",
+  "thumb": "thumbs/gps/sky/relativity.jpg",
+  "png": "../out/gps/sky/relativity.png",
+  "svg": "../out/gps/sky/relativity.svg"
+ },
+ {
+  "id": "gps/sky/wait",
+  "name": "wait",
+  "series": "gps",
+  "group": "sky",
+  "idea": "the nav message is 50 bit/s: 18–48 s for orbits, 12.5 min for the almanac → hot start, or download it (A-GNSS)",
+  "thumb": "thumbs/gps/sky/wait.jpg",
+  "png": "../out/gps/sky/wait.png",
+  "svg": "../out/gps/sky/wait.svg"
+ },
+ {
+  "id": "gps/signal/bands",
+  "name": "bands",
+  "series": "gps",
+  "group": "signal",
+  "idea": "four systems share one slice of L-band → overlap the carriers (all multiples of 10.23 MHz), split them by code",
+  "thumb": "thumbs/gps/signal/bands.jpg",
+  "png": "../out/gps/signal/bands.png",
+  "svg": "../out/gps/signal/bands.svg"
+ },
+ {
+  "id": "gps/signal/code",
+  "name": "code",
+  "series": "gps",
+  "group": "signal",
+  "idea": "every satellite on 1575.42 MHz, 20 dB under the noise → real 1023-chip Gold codes; correlate and one lag stands out",
+  "thumb": "thumbs/gps/signal/code.jpg",
+  "png": "../out/gps/signal/code.png",
+  "svg": "../out/gps/signal/code.svg"
+ },
+ {
+  "id": "gps/signal/doppler",
+  "name": "doppler",
+  "series": "gps",
+  "group": "signal",
+  "idea": "satellites move up to 929 m/s along your line of sight: ±4.9 kHz → search 21 Doppler bins × 1023 code phases",
+  "thumb": "thumbs/gps/signal/doppler.jpg",
+  "png": "../out/gps/signal/doppler.png",
+  "svg": "../out/gps/signal/doppler.svg"
+ },
+ {
+  "id": "gps/signal/iono",
+  "name": "iono",
+  "series": "gps",
+  "group": "signal",
+  "idea": "the ionosphere delays code by metres, 2.8× more at 10° → it's 1/f²: L1 + L5 iono-free cancels it",
+  "thumb": "thumbs/gps/signal/iono.jpg",
+  "png": "../out/gps/signal/iono.png",
+  "svg": "../out/gps/signal/iono.svg"
+ },
+ {
+  "id": "gps/fix/intersect",
+  "name": "intersect",
+  "series": "gps",
+  "group": "fix",
+  "idea": "a range gives a sphere, not a direction → two spheres give a circle, three give two points, four leave one",
+  "thumb": "thumbs/gps/fix/intersect.jpg",
+  "png": "../out/gps/fix/intersect.png",
+  "svg": "../out/gps/fix/intersect.svg"
+ },
+ {
+  "id": "gps/fix/four",
+  "name": "four",
+  "series": "gps",
+  "group": "fix",
+  "idea": "1 µs of receiver clock error is 300 m on every range → solve x, y, z and b: Gauss–Newton from the Earth's centre",
+  "thumb": "thumbs/gps/fix/four.jpg",
+  "png": "../out/gps/fix/four.png",
+  "svg": "../out/gps/fix/four.svg"
+ },
+ {
+  "id": "gps/fix/geoid",
+  "name": "geoid",
+  "series": "gps",
+  "group": "fix",
+  "idea": "GPS height is above an ellipsoid; sea level wanders ±100 m around it → H = h − N with a geoid model",
+  "thumb": "thumbs/gps/fix/geoid.jpg",
+  "png": "../out/gps/fix/geoid.png",
+  "svg": "../out/gps/fix/geoid.svg"
+ },
+ {
+  "id": "gps/fix/dop",
+  "name": "dop",
+  "series": "gps",
+  "group": "fix",
+  "idea": "every satellite is above you, so height is the weak axis → VDOP ≈ 1.5 × HDOP; all four systems pull DOP below 1",
+  "thumb": "thumbs/gps/fix/dop.jpg",
+  "png": "../out/gps/fix/dop.png",
+  "svg": "../out/gps/fix/dop.svg"
+ },
+ {
+  "id": "gps/error/errors",
+  "name": "errors",
+  "series": "gps",
+  "group": "error",
+  "idea": "six independent errors on each range, ionosphere biggest → they add as squares: 4.4 m, not 7.7",
+  "thumb": "thumbs/gps/error/errors.jpg",
+  "png": "../out/gps/error/errors.png",
+  "svg": "../out/gps/error/errors.svg"
+ },
+ {
+  "id": "gps/error/multipath",
+  "name": "multipath",
+  "series": "gps",
+  "group": "error",
+  "idea": "a wall 75 m away adds a copy 0.46 chip late → narrow correlator: 45 m of error becomes 7 m (error envelope)",
+  "thumb": "thumbs/gps/error/multipath.jpg",
+  "png": "../out/gps/error/multipath.png",
+  "svg": "../out/gps/error/multipath.svg"
+ },
+ {
+  "id": "gps/error/canyon",
+  "name": "canyon",
+  "series": "gps",
+  "group": "error",
+  "idea": "between 24 m buildings the sky is a strip: 3 GPS left, no fix → all four constellations: 10 in view, HDOP 1.8",
+  "thumb": "thumbs/gps/error/canyon.jpg",
+  "png": "../out/gps/error/canyon.png",
+  "svg": "../out/gps/error/canyon.svg"
+ },
+ {
+  "id": "gps/error/cep",
+  "name": "cep",
+  "series": "gps",
+  "group": "error",
+  "idea": "\"accurate to 3 m\" means nothing without the circle → CEP 50 %, DRMS ~65 %, R95, 2DRMS ~98 % on 2000 fixes",
+  "thumb": "thumbs/gps/error/cep.jpg",
+  "png": "../out/gps/error/cep.png",
+  "svg": "../out/gps/error/cep.svg"
+ },
+ {
+  "id": "gps/augment/dgps",
+  "name": "dgps",
+  "series": "gps",
+  "group": "augment",
+  "idea": "nearby receivers share most of the error → a base on a known point sends it: 4.4 m → 1.2 m, fading with distance",
+  "thumb": "thumbs/gps/augment/dgps.jpg",
+  "png": "../out/gps/augment/dgps.png",
+  "svg": "../out/gps/augment/dgps.svg"
+ },
+ {
+  "id": "gps/augment/sbas",
+  "name": "sbas",
+  "series": "gps",
+  "group": "augment",
+  "idea": "a DGPS base only helps nearby → reference stations fit a 5° ionosphere grid; a GEO satellite broadcasts it on L1",
+  "thumb": "thumbs/gps/augment/sbas.jpg",
+  "png": "../out/gps/augment/sbas.png",
+  "svg": "../out/gps/augment/sbas.svg"
+ },
+ {
+  "id": "gps/augment/snap",
+  "name": "snap",
+  "series": "gps",
+  "group": "augment",
+  "idea": "the float RTK answer wanders at decimetres → ratio test passes, integers fixed, the error snaps to 1.2 cm (simulated)",
+  "thumb": "thumbs/gps/augment/snap.jpg",
+  "png": "../out/gps/augment/snap.png",
+  "svg": "../out/gps/augment/snap.svg"
+ },
+ {
+  "id": "gps/augment/ladder",
+  "name": "ladder",
+  "series": "gps",
+  "group": "augment",
+  "idea": "how close, and how long can you wait? → standalone to static survey: each rung costs a band, a base, a fee, or time",
+  "thumb": "thumbs/gps/augment/ladder.jpg",
+  "png": "../out/gps/augment/ladder.png",
+  "svg": "../out/gps/augment/ladder.svg"
  }
 ];

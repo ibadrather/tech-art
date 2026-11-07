@@ -93,6 +93,33 @@ Each poster carries an **issue / fix** pair under the title: the problem the des
 | missions | follow. | the subject disappears behind trees → a constant-velocity Kalman filter predicts, doubt grows, snaps back |
 | missions | pano. | a 71° × 56° lens, a 360° × 180° sphere → 21 frames in rings of yaw at four tilts, stitched |
 
+**GPS** (`src/gps.py`, one folder per stage in `out/gps/`). From radio noise to a centimetre fix. The sky on them is
+computed: GPS's 24-slot baseline (+7 spares), GLONASS, Galileo and BeiDou as Kepler orbits over 52.5° N.
+Each poster carries an **issue / fix** pair under the title.
+
+| Stage | Poster | Issue → fix |
+| --- | --- | --- |
+| sky | constellations. | one system's ~30 satellites leave a thin sky → fly four (109 sats, 31 above 10° right now), each drawn from its orbit |
+| sky | skyplot. | from 52.5° N no GPS satellite crosses part of the northern sky (55° orbits) → site antennas with a clear south |
+| sky | relativity. | orbit clocks gain 38.6 µs a day, 11.6 km of range → tune them slow on the ground: 10.22999999543 MHz |
+| sky | wait. | the nav message is 50 bit/s: 18–48 s for orbits, 12.5 min for the almanac → hot start, or download it (A-GNSS) |
+| signal | bands. | four systems share one slice of L-band → overlap the carriers (all multiples of 10.23 MHz), split them by code |
+| signal | code. | every satellite on 1575.42 MHz, 20 dB under the noise → real 1023-chip Gold codes; correlate and one lag stands out |
+| signal | doppler. | satellites move up to 929 m/s along your line of sight: ±4.9 kHz → search 21 Doppler bins × 1023 code phases |
+| signal | iono. | the ionosphere delays code by metres, 2.8× more at 10° → it's 1/f²: L1 + L5 iono-free cancels it |
+| fix | intersect. | a range gives a sphere, not a direction → two spheres give a circle, three give two points, four leave one |
+| fix | four. | 1 µs of receiver clock error is 300 m on every range → solve x, y, z and b: Gauss–Newton from the Earth's centre |
+| fix | geoid. | GPS height is above an ellipsoid; sea level wanders ±100 m around it → H = h − N with a geoid model |
+| fix | dop. | every satellite is above you, so height is the weak axis → VDOP ≈ 1.5 × HDOP; all four systems pull DOP below 1 |
+| error | errors. | six independent errors on each range, ionosphere biggest → they add as squares: 4.4 m, not 7.7 |
+| error | multipath. | a wall 75 m away adds a copy 0.46 chip late → narrow correlator: 45 m of error becomes 7 m (error envelope) |
+| error | canyon. | between 24 m buildings the sky is a strip: 3 GPS left, no fix → all four constellations: 10 in view, HDOP 1.8 |
+| error | cep. | "accurate to 3 m" means nothing without the circle → CEP 50 %, DRMS ~65 %, R95, 2DRMS ~98 % on 2000 fixes |
+| augment | dgps. | nearby receivers share most of the error → a base on a known point sends it: 4.4 m → 1.2 m, fading with distance |
+| augment | sbas. | a DGPS base only helps nearby → reference stations fit a 5° ionosphere grid; a GEO satellite broadcasts it on L1 |
+| augment | snap. | the float RTK answer wanders at decimetres → ratio test passes, integers fixed, the error snaps to 1.2 cm (simulated) |
+| augment | ladder. | how close, and how long can you wait? → standalone to static survey: each rung costs a band, a base, a fee, or time |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -106,6 +133,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     robots/<robot>/                 robots.py
     localization/<domain>/          localization.py
     drone/<part>/                   drone.py
+    gps/<stage>/                    gps.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -133,6 +161,7 @@ uv run --no-project --with fonttools --with brotli python src/drawio_art.py   # 
 uv run --no-project --with fonttools --with brotli python src/robots.py       # out/robots/<robot>/*.svg
 uv run --no-project --with fonttools --with brotli python src/localization.py # out/localization/<domain>/*.svg
 uv run --no-project --with fonttools --with brotli python src/drone.py        # out/drone/<part>/*.svg
+uv run --no-project --with fonttools --with brotli python src/gps.py          # out/gps/<stage>/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery
