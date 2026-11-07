@@ -189,6 +189,71 @@ and computer vision, kept as quiet as the minimal set: one word, one drawing, on
 | image | bayer. | the RGGB colour filter mosaic: one colour per pixel, half of them green |
 | image | edge. | slide [-1, 0, +1] along a row of pixels: the output spikes where the brightness jumps |
 
+**Photogrammetry** (`src/photogrammetry.py`, one folder per pipeline step in `out/photogrammetry/`). Drone photos to a
+map, one concept per poster, in the order of the steps in [photogrammetry](https://github.com/ibadrather/photogrammetry):
+ingest → select → extract → sfm → georef → dense → dsm → ortho. Numbers come from its Brighton Beach sample run
+(18 photos, DJI Phantom 3, 45 m up) unless a poster says simulated.
+
+| Step | Poster | Idea |
+| --- | --- | --- |
+| ingest | join. | the frame table: images and manifest joined one to one; `set(images) ^ set(manifest)` lists every mismatch |
+| ingest | manifest. | the flight from above before anything runs: one GeoJSON Point per photo, `null` for a GPS dropout |
+| ingest | early. | fail fast: a bad dataset stops at step 1 in a second, with all three problems listed at once |
+| select | footprint. | similar triangles: a nadir frame at 45 m sees W = H·s/f = 43 m of ground |
+| select | overlap. | keep a frame once its overlap with the last kept one drops to 80 %: 1 − d/W |
+| select | gsd. | one pixel's rays fan out to one cell on the ground: H·sw/(f·iw) = 1.9 cm |
+| select | thin. | 46 s of video is 1380 frames and 951 510 pairs; 80 % overlap keeps 31 and 465 |
+| extract | gop. | video stores few whole frames; decoding frame by frame repeats work (36 decodes), one FFmpeg pass doesn't (16) |
+| extract | jpeg. | one 8 × 8 block through the DCT: quality 95 keeps 56 coefficients, quality 25 keeps 13, fine detail first to go |
+| extract | shrink. | longest side 1920 px: 4.3× fewer pixels to match, and the focal length scales with them |
+| sfm | keypoint. | SIFT blobs at every scale, a circle and an orientation each; the sea gives none |
+| sfm | descriptor. | a 16 × 16 patch's gradients binned into 4 × 4 cells of 8 directions: 128 numbers |
+| sfm | ratio. | Lowe's ratio test: a rock corner passes at d1/d2 = 0.40, a repeated window fails at 0.94 |
+| sfm | pairs. | exhaustive, sequential or spatial: 120, 42 or 36 pairs for the same 16 photos |
+| sfm | ransac. | fit two random points, count who agrees, keep the best: 11 tries for a line, 272 for an F-matrix |
+| sfm | islands. | the view graph: a textureless band cuts the matches and the flight becomes two models |
+| sfm | grow. | incremental mapping: start from two images, add the next by PnP, points coloured by the step that made them |
+| sfm | track. | one point followed through six photos, its track length; Brighton's mean is 4.1 |
+| sfm | reproject. | the one constraint: a 3D point projected through a camera must land where it was observed |
+| sfm | bundle. | bundle adjustment: 6 cameras, 15 points, 52 rays, one least-squares problem |
+| sfm | robust. | squared error lets a 5 px outlier cost 25; log(1 + r²) caps it at 3.3 |
+| sfm | gauge. | the same model shifted, turned and scaled explains the images equally well: 7 numbers left open |
+| sfm | focal. | f in pixels: 3.61 / 6.17 × 4000 = 2340, refined by bundle adjustment to 2795 (+19.4 %) |
+| sfm | invert. | world-to-camera (R, t) or camera-to-world (Rᵀ, C = −Rᵀt): one pose, the classic bug |
+| sfm | dome. | flat ground, camera straight down: a bowl metres off at the edges, with a perfect reprojection error |
+| sfm | priors. | loose: images decide the shape, then a 7-number fit; tight: GNSS weighted inside bundle adjustment |
+| georef | helmert. | the sfm camera centres scaled, turned and shifted onto the GNSS: y = s·R·x + t |
+| georef | residual. | reading the residuals: random noise, a time offset along track that flips each strip, a doming bowl |
+| georef | offset. | residuals see the noise (0.44 m), not a common GNSS bias (3.6 m) that moves the whole model |
+| georef | hinge. | cameras on one straight line: every roll about the line fits, so the fit stops |
+| georef | enu. | local east-north-up: flat metres tangent to the Earth at 46.84° N, where a degree of longitude is 76 km |
+| georef | utm. | 60 zones of 6°: −91.99° is zone 15, and the scale factor dips to 0.9996 on its centre line |
+| georef | datum. | three zeros for height: the takeoff point, the geoid, the ellipsoid (N = −29 m) |
+| georef | float. | float32 at a northing of 5 188 000 m steps by 0.5 m: 5188000.3 becomes 5188000.5 |
+| dense | undistort. | the sfm lens field over a 4000 × 2250 frame: resample to a pinhole so a patch warps by one homography |
+| dense | views. | view selection: 8 neighbours at a useful angle, not ~0° (no depth), not ≫ 40° (unlike patches) |
+| dense | depth. | candidate depths along one ray land on the epipolar line; the best NCC is the surface |
+| dense | ncc. | a darker copy of a patch scores NCC 1.00, another spot 0.12, though SSD prefers the wrong one |
+| dense | propagate. | PatchMatch on a roof: random depths, then neighbours' good guesses spread in one or three sweeps |
+| dense | baseline. | σZ = Z²/(f·B)·σd: the same ray error, a long thin depth spread for a short baseline, a tight one for a long |
+| dense | agree. | fusion: four depth maps agree and a point is kept; two agree and it's dropped |
+| dense | mirror. | water mirrors the shore, so the match lands as far below the surface as the post is tall |
+| dsm | median. | a cross-section cut into cells; one outlier moves max all the way, mean a fifth, median not at all |
+| dsm | spacing. | the same points gridded at 0.5, 1, 1.5 and 3 × the point spacing, and how many cells each hits |
+| dsm | spike. | a cell more than 1 m from all but one neighbour is noise: a spike goes, a roof corner stays |
+| dsm | fill. | holes filled by area, not distance: small gaps between points filled, a sand patch and the sea left empty |
+| dsm | corner. | pixel-is-area: the origin is the top-left corner, a cell's centre half a cell in |
+| dsm | ndsm. | DSM is the top of everything, DTM the bare ground, nDSM = DSM − DTM how tall things are |
+| dsm | nmad. | against a reference: remove the median offset, then NMAD, which heavy tails can't pull like RMSE |
+| ortho | backward. | run the camera backwards: for each map pixel, a height from the DSM, a projection, a colour |
+| ortho | lean. | relief displacement: a camera sees from one point, so a tower's top lands further out and hides the ground |
+| ortho | slant. | Δxy = Δz·tan θ: a 10 cm height error moves a colour 1.6 cm at 9°, 7 cm at 35° |
+| ortho | ghost. | occlusion: the z-buffer says the wall is nearer, so the ground behind it doesn't get the wall's colour |
+| ortho | seams. | each pixel from the most nadir photo: on flat ground, a Voronoi diagram, its edges the seamlines |
+| ortho | gain. | auto exposure undone: one gain per photo fitted on the overlaps, 0.63 to 1.48 |
+| ortho | blend. | multi-band blending: coarse bands cross the seam over a wide zone, fine bands over a pixel |
+| ortho | true. | one building three ways: rectified on a plane, classic on bare ground, true on the DSM with occlusion |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -206,6 +271,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     gps/<stage>/                    gps.py
     imu/<theme>/                    imu.py
     vision/<theme>/                 vision.py
+    photogrammetry/<step>/          photogrammetry.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -237,6 +303,7 @@ uv run --no-project --with fonttools --with brotli python src/drone.py        # 
 uv run --no-project --with fonttools --with brotli python src/gps.py          # out/gps/<stage>/*.svg
 uv run --no-project --with fonttools --with brotli python src/imu.py          # out/imu/<theme>/*.svg
 uv run --no-project --with fonttools --with brotli python src/vision.py       # out/vision/<theme>/*.svg
+uv run --no-project --with fonttools --with brotli python src/photogrammetry.py  # out/photogrammetry/<step>/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery

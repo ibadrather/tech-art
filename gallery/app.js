@@ -4,7 +4,7 @@
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
-const ACRONYMS = { gps: "GPS", imu: "IMU" };
+const ACRONYMS = { gps: "GPS", imu: "IMU", sfm: "SfM", dsm: "DSM" };
 const label = (s) => ACRONYMS[s] || s.charAt(0).toUpperCase() + s.slice(1);
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 

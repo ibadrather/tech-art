@@ -1359,5 +1359,575 @@ window.POSTERS = [
   "thumb": "thumbs/vision/image/edge.jpg",
   "png": "../out/vision/image/edge.png",
   "svg": "../out/vision/image/edge.svg"
+ },
+ {
+  "id": "photogrammetry/ingest/join",
+  "name": "join",
+  "series": "photogrammetry",
+  "group": "ingest",
+  "idea": "the frame table: images and manifest joined one to one; `set(images) ^ set(manifest)` lists every mismatch",
+  "thumb": "thumbs/photogrammetry/ingest/join.jpg",
+  "png": "../out/photogrammetry/ingest/join.png",
+  "svg": "../out/photogrammetry/ingest/join.svg"
+ },
+ {
+  "id": "photogrammetry/ingest/manifest",
+  "name": "manifest",
+  "series": "photogrammetry",
+  "group": "ingest",
+  "idea": "the flight from above before anything runs: one GeoJSON Point per photo, `null` for a GPS dropout",
+  "thumb": "thumbs/photogrammetry/ingest/manifest.jpg",
+  "png": "../out/photogrammetry/ingest/manifest.png",
+  "svg": "../out/photogrammetry/ingest/manifest.svg"
+ },
+ {
+  "id": "photogrammetry/ingest/early",
+  "name": "early",
+  "series": "photogrammetry",
+  "group": "ingest",
+  "idea": "fail fast: a bad dataset stops at step 1 in a second, with all three problems listed at once",
+  "thumb": "thumbs/photogrammetry/ingest/early.jpg",
+  "png": "../out/photogrammetry/ingest/early.png",
+  "svg": "../out/photogrammetry/ingest/early.svg"
+ },
+ {
+  "id": "photogrammetry/select/footprint",
+  "name": "footprint",
+  "series": "photogrammetry",
+  "group": "select",
+  "idea": "similar triangles: a nadir frame at 45 m sees W = H·s/f = 43 m of ground",
+  "thumb": "thumbs/photogrammetry/select/footprint.jpg",
+  "png": "../out/photogrammetry/select/footprint.png",
+  "svg": "../out/photogrammetry/select/footprint.svg"
+ },
+ {
+  "id": "photogrammetry/select/overlap",
+  "name": "overlap",
+  "series": "photogrammetry",
+  "group": "select",
+  "idea": "keep a frame once its overlap with the last kept one drops to 80 %: 1 − d/W",
+  "thumb": "thumbs/photogrammetry/select/overlap.jpg",
+  "png": "../out/photogrammetry/select/overlap.png",
+  "svg": "../out/photogrammetry/select/overlap.svg"
+ },
+ {
+  "id": "photogrammetry/select/gsd",
+  "name": "gsd",
+  "series": "photogrammetry",
+  "group": "select",
+  "idea": "one pixel's rays fan out to one cell on the ground: H·sw/(f·iw) = 1.9 cm",
+  "thumb": "thumbs/photogrammetry/select/gsd.jpg",
+  "png": "../out/photogrammetry/select/gsd.png",
+  "svg": "../out/photogrammetry/select/gsd.svg"
+ },
+ {
+  "id": "photogrammetry/select/thin",
+  "name": "thin",
+  "series": "photogrammetry",
+  "group": "select",
+  "idea": "46 s of video is 1380 frames and 951 510 pairs; 80 % overlap keeps 31 and 465",
+  "thumb": "thumbs/photogrammetry/select/thin.jpg",
+  "png": "../out/photogrammetry/select/thin.png",
+  "svg": "../out/photogrammetry/select/thin.svg"
+ },
+ {
+  "id": "photogrammetry/extract/gop",
+  "name": "gop",
+  "series": "photogrammetry",
+  "group": "extract",
+  "idea": "video stores few whole frames; decoding frame by frame repeats work (36 decodes), one FFmpeg pass doesn't (16)",
+  "thumb": "thumbs/photogrammetry/extract/gop.jpg",
+  "png": "../out/photogrammetry/extract/gop.png",
+  "svg": "../out/photogrammetry/extract/gop.svg"
+ },
+ {
+  "id": "photogrammetry/extract/jpeg",
+  "name": "jpeg",
+  "series": "photogrammetry",
+  "group": "extract",
+  "idea": "one 8 × 8 block through the DCT: quality 95 keeps 56 coefficients, quality 25 keeps 13, fine detail first to go",
+  "thumb": "thumbs/photogrammetry/extract/jpeg.jpg",
+  "png": "../out/photogrammetry/extract/jpeg.png",
+  "svg": "../out/photogrammetry/extract/jpeg.svg"
+ },
+ {
+  "id": "photogrammetry/extract/shrink",
+  "name": "shrink",
+  "series": "photogrammetry",
+  "group": "extract",
+  "idea": "longest side 1920 px: 4.3× fewer pixels to match, and the focal length scales with them",
+  "thumb": "thumbs/photogrammetry/extract/shrink.jpg",
+  "png": "../out/photogrammetry/extract/shrink.png",
+  "svg": "../out/photogrammetry/extract/shrink.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/keypoint",
+  "name": "keypoint",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "SIFT blobs at every scale, a circle and an orientation each; the sea gives none",
+  "thumb": "thumbs/photogrammetry/sfm/keypoint.jpg",
+  "png": "../out/photogrammetry/sfm/keypoint.png",
+  "svg": "../out/photogrammetry/sfm/keypoint.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/descriptor",
+  "name": "descriptor",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "a 16 × 16 patch's gradients binned into 4 × 4 cells of 8 directions: 128 numbers",
+  "thumb": "thumbs/photogrammetry/sfm/descriptor.jpg",
+  "png": "../out/photogrammetry/sfm/descriptor.png",
+  "svg": "../out/photogrammetry/sfm/descriptor.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/ratio",
+  "name": "ratio",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "Lowe's ratio test: a rock corner passes at d1/d2 = 0.40, a repeated window fails at 0.94",
+  "thumb": "thumbs/photogrammetry/sfm/ratio.jpg",
+  "png": "../out/photogrammetry/sfm/ratio.png",
+  "svg": "../out/photogrammetry/sfm/ratio.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/pairs",
+  "name": "pairs",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "exhaustive, sequential or spatial: 120, 42 or 36 pairs for the same 16 photos",
+  "thumb": "thumbs/photogrammetry/sfm/pairs.jpg",
+  "png": "../out/photogrammetry/sfm/pairs.png",
+  "svg": "../out/photogrammetry/sfm/pairs.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/ransac",
+  "name": "ransac",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "fit two random points, count who agrees, keep the best: 11 tries for a line, 272 for an F-matrix",
+  "thumb": "thumbs/photogrammetry/sfm/ransac.jpg",
+  "png": "../out/photogrammetry/sfm/ransac.png",
+  "svg": "../out/photogrammetry/sfm/ransac.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/islands",
+  "name": "islands",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "the view graph: a textureless band cuts the matches and the flight becomes two models",
+  "thumb": "thumbs/photogrammetry/sfm/islands.jpg",
+  "png": "../out/photogrammetry/sfm/islands.png",
+  "svg": "../out/photogrammetry/sfm/islands.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/grow",
+  "name": "grow",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "incremental mapping: start from two images, add the next by PnP, points coloured by the step that made them",
+  "thumb": "thumbs/photogrammetry/sfm/grow.jpg",
+  "png": "../out/photogrammetry/sfm/grow.png",
+  "svg": "../out/photogrammetry/sfm/grow.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/track",
+  "name": "track",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "one point followed through six photos, its track length; Brighton's mean is 4.1",
+  "thumb": "thumbs/photogrammetry/sfm/track.jpg",
+  "png": "../out/photogrammetry/sfm/track.png",
+  "svg": "../out/photogrammetry/sfm/track.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/reproject",
+  "name": "reproject",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "the one constraint: a 3D point projected through a camera must land where it was observed",
+  "thumb": "thumbs/photogrammetry/sfm/reproject.jpg",
+  "png": "../out/photogrammetry/sfm/reproject.png",
+  "svg": "../out/photogrammetry/sfm/reproject.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/bundle",
+  "name": "bundle",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "bundle adjustment: 6 cameras, 15 points, 52 rays, one least-squares problem",
+  "thumb": "thumbs/photogrammetry/sfm/bundle.jpg",
+  "png": "../out/photogrammetry/sfm/bundle.png",
+  "svg": "../out/photogrammetry/sfm/bundle.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/robust",
+  "name": "robust",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "squared error lets a 5 px outlier cost 25; log(1 + r²) caps it at 3.3",
+  "thumb": "thumbs/photogrammetry/sfm/robust.jpg",
+  "png": "../out/photogrammetry/sfm/robust.png",
+  "svg": "../out/photogrammetry/sfm/robust.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/gauge",
+  "name": "gauge",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "the same model shifted, turned and scaled explains the images equally well: 7 numbers left open",
+  "thumb": "thumbs/photogrammetry/sfm/gauge.jpg",
+  "png": "../out/photogrammetry/sfm/gauge.png",
+  "svg": "../out/photogrammetry/sfm/gauge.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/focal",
+  "name": "focal",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "f in pixels: 3.61 / 6.17 × 4000 = 2340, refined by bundle adjustment to 2795 (+19.4 %)",
+  "thumb": "thumbs/photogrammetry/sfm/focal.jpg",
+  "png": "../out/photogrammetry/sfm/focal.png",
+  "svg": "../out/photogrammetry/sfm/focal.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/invert",
+  "name": "invert",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "world-to-camera (R, t) or camera-to-world (Rᵀ, C = −Rᵀt): one pose, the classic bug",
+  "thumb": "thumbs/photogrammetry/sfm/invert.jpg",
+  "png": "../out/photogrammetry/sfm/invert.png",
+  "svg": "../out/photogrammetry/sfm/invert.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/dome",
+  "name": "dome",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "flat ground, camera straight down: a bowl metres off at the edges, with a perfect reprojection error",
+  "thumb": "thumbs/photogrammetry/sfm/dome.jpg",
+  "png": "../out/photogrammetry/sfm/dome.png",
+  "svg": "../out/photogrammetry/sfm/dome.svg"
+ },
+ {
+  "id": "photogrammetry/sfm/priors",
+  "name": "priors",
+  "series": "photogrammetry",
+  "group": "sfm",
+  "idea": "loose: images decide the shape, then a 7-number fit; tight: GNSS weighted inside bundle adjustment",
+  "thumb": "thumbs/photogrammetry/sfm/priors.jpg",
+  "png": "../out/photogrammetry/sfm/priors.png",
+  "svg": "../out/photogrammetry/sfm/priors.svg"
+ },
+ {
+  "id": "photogrammetry/georef/helmert",
+  "name": "helmert",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "the sfm camera centres scaled, turned and shifted onto the GNSS: y = s·R·x + t",
+  "thumb": "thumbs/photogrammetry/georef/helmert.jpg",
+  "png": "../out/photogrammetry/georef/helmert.png",
+  "svg": "../out/photogrammetry/georef/helmert.svg"
+ },
+ {
+  "id": "photogrammetry/georef/residual",
+  "name": "residual",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "reading the residuals: random noise, a time offset along track that flips each strip, a doming bowl",
+  "thumb": "thumbs/photogrammetry/georef/residual.jpg",
+  "png": "../out/photogrammetry/georef/residual.png",
+  "svg": "../out/photogrammetry/georef/residual.svg"
+ },
+ {
+  "id": "photogrammetry/georef/offset",
+  "name": "offset",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "residuals see the noise (0.44 m), not a common GNSS bias (3.6 m) that moves the whole model",
+  "thumb": "thumbs/photogrammetry/georef/offset.jpg",
+  "png": "../out/photogrammetry/georef/offset.png",
+  "svg": "../out/photogrammetry/georef/offset.svg"
+ },
+ {
+  "id": "photogrammetry/georef/hinge",
+  "name": "hinge",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "cameras on one straight line: every roll about the line fits, so the fit stops",
+  "thumb": "thumbs/photogrammetry/georef/hinge.jpg",
+  "png": "../out/photogrammetry/georef/hinge.png",
+  "svg": "../out/photogrammetry/georef/hinge.svg"
+ },
+ {
+  "id": "photogrammetry/georef/enu",
+  "name": "enu",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "local east-north-up: flat metres tangent to the Earth at 46.84° N, where a degree of longitude is 76 km",
+  "thumb": "thumbs/photogrammetry/georef/enu.jpg",
+  "png": "../out/photogrammetry/georef/enu.png",
+  "svg": "../out/photogrammetry/georef/enu.svg"
+ },
+ {
+  "id": "photogrammetry/georef/utm",
+  "name": "utm",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "60 zones of 6°: −91.99° is zone 15, and the scale factor dips to 0.9996 on its centre line",
+  "thumb": "thumbs/photogrammetry/georef/utm.jpg",
+  "png": "../out/photogrammetry/georef/utm.png",
+  "svg": "../out/photogrammetry/georef/utm.svg"
+ },
+ {
+  "id": "photogrammetry/georef/datum",
+  "name": "datum",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "three zeros for height: the takeoff point, the geoid, the ellipsoid (N = −29 m)",
+  "thumb": "thumbs/photogrammetry/georef/datum.jpg",
+  "png": "../out/photogrammetry/georef/datum.png",
+  "svg": "../out/photogrammetry/georef/datum.svg"
+ },
+ {
+  "id": "photogrammetry/georef/float",
+  "name": "float",
+  "series": "photogrammetry",
+  "group": "georef",
+  "idea": "float32 at a northing of 5 188 000 m steps by 0.5 m: 5188000.3 becomes 5188000.5",
+  "thumb": "thumbs/photogrammetry/georef/float.jpg",
+  "png": "../out/photogrammetry/georef/float.png",
+  "svg": "../out/photogrammetry/georef/float.svg"
+ },
+ {
+  "id": "photogrammetry/dense/undistort",
+  "name": "undistort",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "the sfm lens field over a 4000 × 2250 frame: resample to a pinhole so a patch warps by one homography",
+  "thumb": "thumbs/photogrammetry/dense/undistort.jpg",
+  "png": "../out/photogrammetry/dense/undistort.png",
+  "svg": "../out/photogrammetry/dense/undistort.svg"
+ },
+ {
+  "id": "photogrammetry/dense/views",
+  "name": "views",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "view selection: 8 neighbours at a useful angle, not ~0° (no depth), not ≫ 40° (unlike patches)",
+  "thumb": "thumbs/photogrammetry/dense/views.jpg",
+  "png": "../out/photogrammetry/dense/views.png",
+  "svg": "../out/photogrammetry/dense/views.svg"
+ },
+ {
+  "id": "photogrammetry/dense/depth",
+  "name": "depth",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "candidate depths along one ray land on the epipolar line; the best NCC is the surface",
+  "thumb": "thumbs/photogrammetry/dense/depth.jpg",
+  "png": "../out/photogrammetry/dense/depth.png",
+  "svg": "../out/photogrammetry/dense/depth.svg"
+ },
+ {
+  "id": "photogrammetry/dense/ncc",
+  "name": "ncc",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "a darker copy of a patch scores NCC 1.00, another spot 0.12, though SSD prefers the wrong one",
+  "thumb": "thumbs/photogrammetry/dense/ncc.jpg",
+  "png": "../out/photogrammetry/dense/ncc.png",
+  "svg": "../out/photogrammetry/dense/ncc.svg"
+ },
+ {
+  "id": "photogrammetry/dense/propagate",
+  "name": "propagate",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "PatchMatch on a roof: random depths, then neighbours' good guesses spread in one or three sweeps",
+  "thumb": "thumbs/photogrammetry/dense/propagate.jpg",
+  "png": "../out/photogrammetry/dense/propagate.png",
+  "svg": "../out/photogrammetry/dense/propagate.svg"
+ },
+ {
+  "id": "photogrammetry/dense/baseline",
+  "name": "baseline",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "σZ = Z²/(f·B)·σd: the same ray error, a long thin depth spread for a short baseline, a tight one for a long",
+  "thumb": "thumbs/photogrammetry/dense/baseline.jpg",
+  "png": "../out/photogrammetry/dense/baseline.png",
+  "svg": "../out/photogrammetry/dense/baseline.svg"
+ },
+ {
+  "id": "photogrammetry/dense/agree",
+  "name": "agree",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "fusion: four depth maps agree and a point is kept; two agree and it's dropped",
+  "thumb": "thumbs/photogrammetry/dense/agree.jpg",
+  "png": "../out/photogrammetry/dense/agree.png",
+  "svg": "../out/photogrammetry/dense/agree.svg"
+ },
+ {
+  "id": "photogrammetry/dense/mirror",
+  "name": "mirror",
+  "series": "photogrammetry",
+  "group": "dense",
+  "idea": "water mirrors the shore, so the match lands as far below the surface as the post is tall",
+  "thumb": "thumbs/photogrammetry/dense/mirror.jpg",
+  "png": "../out/photogrammetry/dense/mirror.png",
+  "svg": "../out/photogrammetry/dense/mirror.svg"
+ },
+ {
+  "id": "photogrammetry/dsm/median",
+  "name": "median",
+  "series": "photogrammetry",
+  "group": "dsm",
+  "idea": "a cross-section cut into cells; one outlier moves max all the way, mean a fifth, median not at all",
+  "thumb": "thumbs/photogrammetry/dsm/median.jpg",
+  "png": "../out/photogrammetry/dsm/median.png",
+  "svg": "../out/photogrammetry/dsm/median.svg"
+ },
+ {
+  "id": "photogrammetry/dsm/spacing",
+  "name": "spacing",
+  "series": "photogrammetry",
+  "group": "dsm",
+  "idea": "the same points gridded at 0.5, 1, 1.5 and 3 × the point spacing, and how many cells each hits",
+  "thumb": "thumbs/photogrammetry/dsm/spacing.jpg",
+  "png": "../out/photogrammetry/dsm/spacing.png",
+  "svg": "../out/photogrammetry/dsm/spacing.svg"
+ },
+ {
+  "id": "photogrammetry/dsm/spike",
+  "name": "spike",
+  "series": "photogrammetry",
+  "group": "dsm",
+  "idea": "a cell more than 1 m from all but one neighbour is noise: a spike goes, a roof corner stays",
+  "thumb": "thumbs/photogrammetry/dsm/spike.jpg",
+  "png": "../out/photogrammetry/dsm/spike.png",
+  "svg": "../out/photogrammetry/dsm/spike.svg"
+ },
+ {
+  "id": "photogrammetry/dsm/fill",
+  "name": "fill",
+  "series": "photogrammetry",
+  "group": "dsm",
+  "idea": "holes filled by area, not distance: small gaps between points filled, a sand patch and the sea left empty",
+  "thumb": "thumbs/photogrammetry/dsm/fill.jpg",
+  "png": "../out/photogrammetry/dsm/fill.png",
+  "svg": "../out/photogrammetry/dsm/fill.svg"
+ },
+ {
+  "id": "photogrammetry/dsm/corner",
+  "name": "corner",
+  "series": "photogrammetry",
+  "group": "dsm",
+  "idea": "pixel-is-area: the origin is the top-left corner, a cell's centre half a cell in",
+  "thumb": "thumbs/photogrammetry/dsm/corner.jpg",
+  "png": "../out/photogrammetry/dsm/corner.png",
+  "svg": "../out/photogrammetry/dsm/corner.svg"
+ },
+ {
+  "id": "photogrammetry/dsm/ndsm",
+  "name": "ndsm",
+  "series": "photogrammetry",
+  "group": "dsm",
+  "idea": "DSM is the top of everything, DTM the bare ground, nDSM = DSM − DTM how tall things are",
+  "thumb": "thumbs/photogrammetry/dsm/ndsm.jpg",
+  "png": "../out/photogrammetry/dsm/ndsm.png",
+  "svg": "../out/photogrammetry/dsm/ndsm.svg"
+ },
+ {
+  "id": "photogrammetry/dsm/nmad",
+  "name": "nmad",
+  "series": "photogrammetry",
+  "group": "dsm",
+  "idea": "against a reference: remove the median offset, then NMAD, which heavy tails can't pull like RMSE",
+  "thumb": "thumbs/photogrammetry/dsm/nmad.jpg",
+  "png": "../out/photogrammetry/dsm/nmad.png",
+  "svg": "../out/photogrammetry/dsm/nmad.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/backward",
+  "name": "backward",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "run the camera backwards: for each map pixel, a height from the DSM, a projection, a colour",
+  "thumb": "thumbs/photogrammetry/ortho/backward.jpg",
+  "png": "../out/photogrammetry/ortho/backward.png",
+  "svg": "../out/photogrammetry/ortho/backward.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/lean",
+  "name": "lean",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "relief displacement: a camera sees from one point, so a tower's top lands further out and hides the ground",
+  "thumb": "thumbs/photogrammetry/ortho/lean.jpg",
+  "png": "../out/photogrammetry/ortho/lean.png",
+  "svg": "../out/photogrammetry/ortho/lean.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/slant",
+  "name": "slant",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "Δxy = Δz·tan θ: a 10 cm height error moves a colour 1.6 cm at 9°, 7 cm at 35°",
+  "thumb": "thumbs/photogrammetry/ortho/slant.jpg",
+  "png": "../out/photogrammetry/ortho/slant.png",
+  "svg": "../out/photogrammetry/ortho/slant.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/ghost",
+  "name": "ghost",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "occlusion: the z-buffer says the wall is nearer, so the ground behind it doesn't get the wall's colour",
+  "thumb": "thumbs/photogrammetry/ortho/ghost.jpg",
+  "png": "../out/photogrammetry/ortho/ghost.png",
+  "svg": "../out/photogrammetry/ortho/ghost.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/seams",
+  "name": "seams",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "each pixel from the most nadir photo: on flat ground, a Voronoi diagram, its edges the seamlines",
+  "thumb": "thumbs/photogrammetry/ortho/seams.jpg",
+  "png": "../out/photogrammetry/ortho/seams.png",
+  "svg": "../out/photogrammetry/ortho/seams.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/gain",
+  "name": "gain",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "auto exposure undone: one gain per photo fitted on the overlaps, 0.63 to 1.48",
+  "thumb": "thumbs/photogrammetry/ortho/gain.jpg",
+  "png": "../out/photogrammetry/ortho/gain.png",
+  "svg": "../out/photogrammetry/ortho/gain.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/blend",
+  "name": "blend",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "multi-band blending: coarse bands cross the seam over a wide zone, fine bands over a pixel",
+  "thumb": "thumbs/photogrammetry/ortho/blend.jpg",
+  "png": "../out/photogrammetry/ortho/blend.png",
+  "svg": "../out/photogrammetry/ortho/blend.svg"
+ },
+ {
+  "id": "photogrammetry/ortho/true",
+  "name": "true",
+  "series": "photogrammetry",
+  "group": "ortho",
+  "idea": "one building three ways: rectified on a plane, classic on bare ground, true on the DSM with occlusion",
+  "thumb": "thumbs/photogrammetry/ortho/true.jpg",
+  "png": "../out/photogrammetry/ortho/true.png",
+  "svg": "../out/photogrammetry/ortho/true.svg"
  }
 ];
