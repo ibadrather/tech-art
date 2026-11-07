@@ -120,6 +120,27 @@ Each poster carries an **issue / fix** pair under the title.
 | augment | snap. | the float RTK answer wanders at decimetres → ratio test passes, integers fixed, the error snaps to 1.2 cm (simulated) |
 | augment | ladder. | how close, and how long can you wait? → standalone to static survey: each rung costs a band, a base, a fee, or time |
 
+**IMU** (`src/imu.py`, one folder per theme in `out/imu/`). What's inside an inertial measurement unit, what a better
+one costs, why it drifts, and how to live with it. Each poster carries an **issue / fix** pair under the title.
+
+| Theme | Poster | Issue → fix |
+| --- | --- | --- |
+| sense | proof. | a chip can't feel force, and 1 g moves a 2 µg mass 15.5 nm → comb fingers either side: (C1 − C2)/(C1 + C2) is linear in a |
+| sense | coriolis. | no room for a spinning wheel on a chip → vibrate a mass at 20 kHz; rotation pushes it sideways, 2.7 nm at 100 °/s |
+| sense | sagnac. | a vibrating mass can't hold 0.01 °/h → light both ways round 1 km of fibre: the Earth's spin is 99 µrad of phase |
+| grade | grades. | gyro bias and price both span six orders of magnitude → consumer to strategic, and which grades can find north alone |
+| grade | coast. | with no fix, error grows as t² then t³ → the grade buys time: 10 m in 26 s for a phone, 4 min for an airliner (Schuler-bounded) |
+| grade | allan. | one noise number can't describe a gyro → Allan deviation of 2 h at rest: ARW on the −½ slope, bias instability at the floor |
+| drift | integrate. | a phone on a table, 2 mg of bias, integrated twice: 36 m in a minute → learn the bias at rest; noise alone leaves ±0.6 m |
+| drift | leak. | a 1° tilt error leaves 0.17 m/s² of gravity behind → get attitude right first: 0.057° of tilt costs as much as 1 mg of bias |
+| drift | warm. | bias moves 1.5 °/s across −20…70 °C → chamber sweep, cubic fit, subtract live; the hysteresis loop is what's left |
+| fuse | bias. | gyro bias integrates into an angle that walks away → a Kalman filter with the bias in the state learns it from the accelerometer |
+| fuse | yaw. | gravity pins roll and pitch, not heading → a magnetometer (gated against steel) or GPS course; gyro alone drifts 30° in 10 min |
+| fuse | stance. | a shoe IMU integrated twice is 34 m off after a 72 m walk → zero-velocity update every footfall: 0.23 m |
+| use | tumble. | biased, scaled 1–2 % off, axes not square → rest it on six faces; gravity is known, solve 12 parameters from 18 numbers |
+| use | mount. | 15 cm off-centre on a robot spinning at 3 rad/s reads 1.35 m/s² → mount at the centre or subtract ω×(ω×r) + α×r |
+| use | alias. | 190 Hz motor buzz sampled at 200 Hz becomes a 10 Hz wobble → sample at 1 kHz, low-pass in the chip, decimate: −30 dB |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -134,6 +155,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     localization/<domain>/          localization.py
     drone/<part>/                   drone.py
     gps/<stage>/                    gps.py
+    imu/<theme>/                    imu.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -162,6 +184,7 @@ uv run --no-project --with fonttools --with brotli python src/robots.py       # 
 uv run --no-project --with fonttools --with brotli python src/localization.py # out/localization/<domain>/*.svg
 uv run --no-project --with fonttools --with brotli python src/drone.py        # out/drone/<part>/*.svg
 uv run --no-project --with fonttools --with brotli python src/gps.py          # out/gps/<stage>/*.svg
+uv run --no-project --with fonttools --with brotli python src/imu.py          # out/imu/<theme>/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery

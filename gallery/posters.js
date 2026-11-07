@@ -849,5 +849,155 @@ window.POSTERS = [
   "thumb": "thumbs/gps/augment/ladder.jpg",
   "png": "../out/gps/augment/ladder.png",
   "svg": "../out/gps/augment/ladder.svg"
+ },
+ {
+  "id": "imu/sense/proof",
+  "name": "proof",
+  "series": "imu",
+  "group": "sense",
+  "idea": "a chip can't feel force, and 1 g moves a 2 µg mass 15.5 nm → comb fingers either side: (C1 − C2)/(C1 + C2) is linear in a",
+  "thumb": "thumbs/imu/sense/proof.jpg",
+  "png": "../out/imu/sense/proof.png",
+  "svg": "../out/imu/sense/proof.svg"
+ },
+ {
+  "id": "imu/sense/coriolis",
+  "name": "coriolis",
+  "series": "imu",
+  "group": "sense",
+  "idea": "no room for a spinning wheel on a chip → vibrate a mass at 20 kHz; rotation pushes it sideways, 2.7 nm at 100 °/s",
+  "thumb": "thumbs/imu/sense/coriolis.jpg",
+  "png": "../out/imu/sense/coriolis.png",
+  "svg": "../out/imu/sense/coriolis.svg"
+ },
+ {
+  "id": "imu/sense/sagnac",
+  "name": "sagnac",
+  "series": "imu",
+  "group": "sense",
+  "idea": "a vibrating mass can't hold 0.01 °/h → light both ways round 1 km of fibre: the Earth's spin is 99 µrad of phase",
+  "thumb": "thumbs/imu/sense/sagnac.jpg",
+  "png": "../out/imu/sense/sagnac.png",
+  "svg": "../out/imu/sense/sagnac.svg"
+ },
+ {
+  "id": "imu/grade/grades",
+  "name": "grades",
+  "series": "imu",
+  "group": "grade",
+  "idea": "gyro bias and price both span six orders of magnitude → consumer to strategic, and which grades can find north alone",
+  "thumb": "thumbs/imu/grade/grades.jpg",
+  "png": "../out/imu/grade/grades.png",
+  "svg": "../out/imu/grade/grades.svg"
+ },
+ {
+  "id": "imu/grade/coast",
+  "name": "coast",
+  "series": "imu",
+  "group": "grade",
+  "idea": "with no fix, error grows as t² then t³ → the grade buys time: 10 m in 26 s for a phone, 4 min for an airliner (Schuler-bounded)",
+  "thumb": "thumbs/imu/grade/coast.jpg",
+  "png": "../out/imu/grade/coast.png",
+  "svg": "../out/imu/grade/coast.svg"
+ },
+ {
+  "id": "imu/grade/allan",
+  "name": "allan",
+  "series": "imu",
+  "group": "grade",
+  "idea": "one noise number can't describe a gyro → Allan deviation of 2 h at rest: ARW on the −½ slope, bias instability at the floor",
+  "thumb": "thumbs/imu/grade/allan.jpg",
+  "png": "../out/imu/grade/allan.png",
+  "svg": "../out/imu/grade/allan.svg"
+ },
+ {
+  "id": "imu/drift/integrate",
+  "name": "integrate",
+  "series": "imu",
+  "group": "drift",
+  "idea": "a phone on a table, 2 mg of bias, integrated twice: 36 m in a minute → learn the bias at rest; noise alone leaves ±0.6 m",
+  "thumb": "thumbs/imu/drift/integrate.jpg",
+  "png": "../out/imu/drift/integrate.png",
+  "svg": "../out/imu/drift/integrate.svg"
+ },
+ {
+  "id": "imu/drift/leak",
+  "name": "leak",
+  "series": "imu",
+  "group": "drift",
+  "idea": "a 1° tilt error leaves 0.17 m/s² of gravity behind → get attitude right first: 0.057° of tilt costs as much as 1 mg of bias",
+  "thumb": "thumbs/imu/drift/leak.jpg",
+  "png": "../out/imu/drift/leak.png",
+  "svg": "../out/imu/drift/leak.svg"
+ },
+ {
+  "id": "imu/drift/warm",
+  "name": "warm",
+  "series": "imu",
+  "group": "drift",
+  "idea": "bias moves 1.5 °/s across −20…70 °C → chamber sweep, cubic fit, subtract live; the hysteresis loop is what's left",
+  "thumb": "thumbs/imu/drift/warm.jpg",
+  "png": "../out/imu/drift/warm.png",
+  "svg": "../out/imu/drift/warm.svg"
+ },
+ {
+  "id": "imu/fuse/bias",
+  "name": "bias",
+  "series": "imu",
+  "group": "fuse",
+  "idea": "gyro bias integrates into an angle that walks away → a Kalman filter with the bias in the state learns it from the accelerometer",
+  "thumb": "thumbs/imu/fuse/bias.jpg",
+  "png": "../out/imu/fuse/bias.png",
+  "svg": "../out/imu/fuse/bias.svg"
+ },
+ {
+  "id": "imu/fuse/yaw",
+  "name": "yaw",
+  "series": "imu",
+  "group": "fuse",
+  "idea": "gravity pins roll and pitch, not heading → a magnetometer (gated against steel) or GPS course; gyro alone drifts 30° in 10 min",
+  "thumb": "thumbs/imu/fuse/yaw.jpg",
+  "png": "../out/imu/fuse/yaw.png",
+  "svg": "../out/imu/fuse/yaw.svg"
+ },
+ {
+  "id": "imu/fuse/stance",
+  "name": "stance",
+  "series": "imu",
+  "group": "fuse",
+  "idea": "a shoe IMU integrated twice is 34 m off after a 72 m walk → zero-velocity update every footfall: 0.23 m",
+  "thumb": "thumbs/imu/fuse/stance.jpg",
+  "png": "../out/imu/fuse/stance.png",
+  "svg": "../out/imu/fuse/stance.svg"
+ },
+ {
+  "id": "imu/use/tumble",
+  "name": "tumble",
+  "series": "imu",
+  "group": "use",
+  "idea": "biased, scaled 1–2 % off, axes not square → rest it on six faces; gravity is known, solve 12 parameters from 18 numbers",
+  "thumb": "thumbs/imu/use/tumble.jpg",
+  "png": "../out/imu/use/tumble.png",
+  "svg": "../out/imu/use/tumble.svg"
+ },
+ {
+  "id": "imu/use/mount",
+  "name": "mount",
+  "series": "imu",
+  "group": "use",
+  "idea": "15 cm off-centre on a robot spinning at 3 rad/s reads 1.35 m/s² → mount at the centre or subtract ω×(ω×r) + α×r",
+  "thumb": "thumbs/imu/use/mount.jpg",
+  "png": "../out/imu/use/mount.png",
+  "svg": "../out/imu/use/mount.svg"
+ },
+ {
+  "id": "imu/use/alias",
+  "name": "alias",
+  "series": "imu",
+  "group": "use",
+  "idea": "190 Hz motor buzz sampled at 200 Hz becomes a 10 Hz wobble → sample at 1 kHz, low-pass in the chip, decimate: −30 dB",
+  "thumb": "thumbs/imu/use/alias.jpg",
+  "png": "../out/imu/use/alias.png",
+  "svg": "../out/imu/use/alias.svg"
  }
 ];
