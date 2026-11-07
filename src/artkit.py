@@ -200,8 +200,9 @@ class Svg:
             f'<rect width="{self.w}" height="{self.h}" fill="{self.bg}"/>' + "\n".join(self.parts) + "</svg>\n"
         )
 
-    def save(self, name: str) -> Path:
-        out = ROOT / "out/svg" / f"{name}.svg"
+    def save(self, name: str, series: str) -> Path:
+        out = ROOT / "out" / series / f"{name}.svg"
+        out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(self.render())
         return out
 

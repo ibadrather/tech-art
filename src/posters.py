@@ -438,5 +438,5 @@ POSTERS = [reach, see, settle, hello, build, drive, plan]
 
 if __name__ == "__main__":
     for fn in POSTERS:
-        out = fn().save(fn.__name__)
+        out = fn().save(fn.__name__, "core")
         print(out.relative_to(Path(__file__).resolve().parents[1]), f"{out.stat().st_size // 1024} KB")

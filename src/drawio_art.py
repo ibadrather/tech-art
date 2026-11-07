@@ -92,7 +92,7 @@ class Drawio:
             f'background="{self.bg}"><root><mxCell id="0"/><mxCell id="1" parent="0"/>{"".join(self.cells)}</root>'
             "</mxGraphModel></diagram></mxfile>\n"
         )
-        out = ROOT / "out/drawio" / f"{self.name}.drawio"
+        out = ROOT / "out/core" / f"{self.name}.drawio"
         out.write_text(xml)
         return out
 
@@ -208,7 +208,7 @@ struct Mount {
 
 def export(d: Drawio) -> Path:
     src = d.save()
-    svg = ROOT / "out/svg" / f"{d.name}.svg"
+    svg = ROOT / "out/core" / f"{d.name}.svg"
     subprocess.run(["drawio", "-x", "-f", "svg", "-b", "0", "-o", str(svg), str(src)], check=True, capture_output=True)
     s = svg.read_text()
     text = html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r'(href|content|xlink:href)="[^"]*"', "", s)))

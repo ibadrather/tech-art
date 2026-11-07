@@ -552,5 +552,5 @@ SENSORS = [feel, ping, count, project, orient, locate, chirp, triangulate]
 
 if __name__ == "__main__":
     for fn in SENSORS:
-        out = fn().save(fn.__name__)
+        out = fn().save(fn.__name__, "sensors")
         print(out.relative_to(Path(__file__).resolve().parents[1]), f"{out.stat().st_size // 1024} KB")

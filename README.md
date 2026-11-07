@@ -29,8 +29,7 @@ from the maths or code printed on it.
 | chirp. | FMCW radar | chirp + echo, the beat signal, and the FFT that turns it into ranges |
 | triangulate. | stereo camera | pixel rays from two cameras cross in a lattice that coarsens with depth |
 
-**Robots** (`src/robots.py`, one folder per kind of robot in `out/robots/`, contact sheet in
-`out/robots/overview.png`). Each robot type gets three posters, each on something that makes it hard:
+**Robots** (`src/robots.py`, one folder per kind of robot in `out/robots/`). Each robot type gets three posters, each on something that makes it hard:
 
 | Robot | Poster | Idea |
 | --- | --- | --- |
@@ -47,8 +46,7 @@ from the maths or code printed on it.
 | legged | stride. | biped LIPM: ZMP hops foot to foot, the CoM that produces it sways between |
 | legged | gait. | walk, trot, pace, bound, gallop: same four legs, different timing |
 
-**Localization** (`src/localization.py`, one folder per domain in `out/localization/`, contact sheet in
-`out/localization/overview.png`). Four ways each to answer "where am I?":
+**Localization** (`src/localization.py`, one folder per domain in `out/localization/`). Four ways each to answer "where am I?":
 
 | Domain | Poster | Idea |
 | --- | --- | --- |
@@ -65,8 +63,7 @@ from the maths or code printed on it.
 | underwater | contour. | terrain-relative navigation: slide the measured depth profile over the chart until the hills line up |
 | underwater | bend. | sound bends toward slow water (Munk profile), so travel time × 1500 isn't the straight-line range |
 
-**Drone** (`src/drone.py`, one folder per part of the drone in `out/drone/`, contact sheet in
-`out/drone/overview.png`). One small folding quad (sub-250 g, 4K camera on a 3-axis gimbal) taken apart.
+**Drone** (`src/drone.py`, one folder per part of the drone in `out/drone/`). One small folding quad (sub-250 g, 4K camera on a 3-axis gimbal) taken apart.
 Each poster carries an **issue / fix** pair under the title: the problem the design has to beat, and how.
 
 | Part | Poster | Issue → fix |
@@ -100,19 +97,45 @@ Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
 
+## Layout
+
+```
+out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png = contact sheet
+    core/                           posters.py + drawio_art.py (also the .drawio sources)
+    sensors/                        sensors.py
+    robots/<robot>/                 robots.py
+    localization/<domain>/          localization.py
+    drone/<part>/                   drone.py
+gallery/                            static browser for everything in out/
+```
+
+## Gallery
+
+```bash
+make gallery     # rescan out/ -> gallery/posters.js + thumbnails (run after adding posters)
+make run         # serve the repo, then open http://localhost:8000/gallery/
+```
+
+A shop-style browser for everything in `out/`: search, a collection tree (series → group) with
+counts, active-filter chips, breadcrumbs, sort and tile size. Each poster opens in a detail view
+with downloads (SVG / PNG), its file path, and more from the same group. Everything is in the URL
+(e.g. `#in=drone/camera,robots&q=lidar&p=drone/camera/readout`), so views are linkable and
+back / forward work. Keys: `/` search, ← / → browse, F fullscreen, Esc close.
+Descriptions come from the tables above; thumbnails (`gallery/thumbs/`, git-ignored) are built
+with macOS `sips` — without them the gallery falls back to the full PNGs.
+
 ## Build
 
 ```bash
-uv run --no-project --with fonttools --with brotli python src/posters.py     # out/svg/*.svg
-uv run --no-project --with fonttools --with brotli python src/sensors.py     # out/svg/*.svg (sensors)
-uv run --no-project --with fonttools --with brotli python src/drawio_art.py  # out/drawio/*.drawio + out/svg
-uv run --no-project --with fonttools --with brotli python src/robots.py      # out/robots/<robot>/*.svg
+uv run --no-project --with fonttools --with brotli python src/posters.py      # out/core/*.svg
+uv run --no-project --with fonttools --with brotli python src/sensors.py      # out/sensors/*.svg
+uv run --no-project --with fonttools --with brotli python src/drawio_art.py   # out/core/*.drawio + .svg
+uv run --no-project --with fonttools --with brotli python src/robots.py       # out/robots/<robot>/*.svg
 uv run --no-project --with fonttools --with brotli python src/localization.py # out/localization/<domain>/*.svg
-uv run --no-project --with fonttools --with brotli python src/drone.py       # out/drone/<part>/*.svg
-./src/render.sh                                                              # out/png/*.png (2160×2700)
-./src/render.sh out/robots                                                   # a PNG beside every robot SVG
-./src/render.sh out/localization                                             # a PNG beside every localization SVG
-./src/render.sh out/drone                                                    # a PNG beside every drone SVG
+uv run --no-project --with fonttools --with brotli python src/drone.py        # out/drone/<part>/*.svg
+./src/render.sh                                                               # a PNG beside every SVG in out/
+./src/render.sh out/drone                                                     # only under out/drone
+python3 src/gallery.py                                                        # refresh the gallery
 ```
 
 - SVGs are self-contained: fonts are subset and embedded.

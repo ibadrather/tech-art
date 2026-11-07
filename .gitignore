@@ -23,3 +23,6 @@ venv/
 
 # Env
 .env
+
+# Gallery thumbnails (python3 src/gallery.py)
+gallery/thumbs/
