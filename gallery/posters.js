@@ -2319,5 +2319,55 @@ window.POSTERS = [
   "thumb": "thumbs/lattice/astro.jpg",
   "png": "../out/lattice/astro.png",
   "svg": "../out/lattice/astro.svg"
+ },
+ {
+  "id": "epic/chaos",
+  "name": "chaos",
+  "series": "epic",
+  "group": "",
+  "idea": "the Lorenz attractor: 48 000 RK4 steps of three equations, a path that never repeats",
+  "thumb": "thumbs/epic/chaos.jpg",
+  "png": "../out/epic/chaos.png",
+  "svg": "../out/epic/chaos.svg"
+ },
+ {
+  "id": "epic/explore",
+  "name": "explore",
+  "series": "epic",
+  "group": "",
+  "idea": "RRT*: 5000 random samples grow a tree through a slalom of walls; rewiring pulls one route straight",
+  "thumb": "thumbs/epic/explore.jpg",
+  "png": "../out/epic/explore.png",
+  "svg": "../out/epic/explore.svg"
+ },
+ {
+  "id": "epic/field",
+  "name": "field",
+  "series": "epic",
+  "group": "",
+  "idea": "a potential field: 160 starts on the border pulled to one goal, pushed off nine obstacles",
+  "thumb": "thumbs/epic/field.jpg",
+  "png": "../out/epic/field.png",
+  "svg": "../out/epic/field.svg"
+ },
+ {
+  "id": "epic/swarm",
+  "name": "swarm",
+  "series": "epic",
+  "group": "",
+  "idea": "boids: 160 agents scattered at random find each other with three local rules and fly as one",
+  "thumb": "thumbs/epic/swarm.jpg",
+  "png": "../out/epic/swarm.png",
+  "svg": "../out/epic/swarm.svg"
+ },
+ {
+  "id": "epic/descend",
+  "name": "descend",
+  "series": "epic",
+  "group": "",
+  "idea": "momentum gradient descent on a three-valley loss: 72 starts, each coloured by the valley it ends in",
+  "thumb": "thumbs/epic/descend.jpg",
+  "png": "../out/epic/descend.png",
+  "svg": "../out/epic/descend.svg"
  }
 ];

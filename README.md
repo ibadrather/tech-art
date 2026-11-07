@@ -305,6 +305,17 @@ and a stack of shapes (first match wins) that decides the colour of each triangl
 | bloom. | a robot head used as a flower pot, its eyes turned up at what grew |
 | astro. | a robot in a space helmet, a ringed planet behind |
 
+**Epic** (`src/epic.py`, `out/epic/`). The opposite of the minimal set: one simulation run out to the edges of the
+paper, thousands of marks, every one computed by the line of code printed under it.
+
+| Poster | Idea |
+| --- | --- |
+| chaos. | the Lorenz attractor: 48 000 RK4 steps of three equations, a path that never repeats |
+| explore. | RRT*: 5000 random samples grow a tree through a slalom of walls; rewiring pulls one route straight |
+| field. | a potential field: 160 starts on the border pulled to one goal, pushed off nine obstacles |
+| swarm. | boids: 160 agents scattered at random find each other with three local rules and fly as one |
+| descend. | momentum gradient descent on a three-valley loss: 72 starts, each coloured by the valley it ends in |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -325,6 +336,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     photogrammetry/<step>/          photogrammetry.py
     still/                          still.py
     lattice/                        lattice.py
+    epic/                           epic.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -359,6 +371,7 @@ uv run --no-project --with fonttools --with brotli python src/vision.py       # 
 uv run --no-project --with fonttools --with brotli python src/photogrammetry.py  # out/photogrammetry/<step>/*.svg
 uv run --no-project --with fonttools --with brotli python src/still.py        # out/still/*.svg
 uv run --no-project --with fonttools --with brotli python src/lattice.py      # out/lattice/*.svg
+uv run --no-project --with fonttools --with brotli python src/epic.py         # out/epic/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery
