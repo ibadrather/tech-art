@@ -244,7 +244,7 @@ KEYWORDS = {
 }
 TOKEN_RE = re.compile(
     r"(?P<comment>#(?!include).*|//.*)|(?P<string>\"[^\"]*\"|'[^']*')|(?P<pre>#include)|(?P<number>\b\d+\.?\d*(?:e-?\d+)?[fFuUlL]?\b)"
-    r"|(?P<word>[A-Za-z_]\w*)|(?P<op>[^\sA-Za-z_\d]+)|(?P<space>\s+)"
+    r"|(?P<word>[A-Za-z_]\w*)|(?P<op>[^\sA-Za-z_\d\"']+)|(?P<space>\s+)|(?P<other>\S)"
 )
 CODE_THEME_LIGHT = {"comment": P.black_60, "string": P.teal, "number": P.lavender, "keyword": P.blue, "pre": P.blue,
                     "call": P.teal, "word": P.black, "op": P.black_60, "space": P.black}
@@ -256,6 +256,8 @@ def tokenize(line: str, lang: str):
     toks = [(m.lastgroup, m.group()) for m in TOKEN_RE.finditer(line)]
     out = []
     for i, (kind, tok) in enumerate(toks):
+        if kind == "other":  # e.g. the "3" of "3in": draw it, don't drop it
+            kind = "word"
         if kind == "word":
             if tok in KEYWORDS[lang]:
                 kind = "keyword"

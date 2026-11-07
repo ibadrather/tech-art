@@ -65,6 +65,37 @@ from the maths or code printed on it.
 | underwater | contour. | terrain-relative navigation: slide the measured depth profile over the chart until the hills line up |
 | underwater | bend. | sound bends toward slow water (Munk profile), so travel time × 1500 isn't the straight-line range |
 
+**Drone** (`src/drone.py`, one folder per part of the drone in `out/drone/`, contact sheet in
+`out/drone/overview.png`). One small folding quad (sub-250 g, 4K camera on a 3-axis gimbal) taken apart.
+Each poster carries an **issue / fix** pair under the title: the problem the design has to beat, and how.
+
+| Part | Poster | Issue → fix |
+| --- | --- | --- |
+| airframe | anatomy. | a big drone's sensors, radios and camera in 249 g → fold the arms, put each sensor where the noise isn't |
+| airframe | weigh. | 250 g is where the rules get stricter → 250 squares, one per gram: what each is spent on, 1 g spare |
+| airframe | fold. | small props cost hover power (P ∝ 1/D), big props need a big frame → 6" props on arms that swing in, 8× smaller |
+| airframe | wind. | wind blows it out at 20 m/s and lets it crawl home at 4 → lean into it (33° at 10.7 m/s), budget the trip back |
+| camera | readout. | rows are read one at a time: pans lean, buzz wobbles → faster readout + the gimbal |
+| camera | stops. | ~15 stops of scene, ~11.5 per read → dual-gain HDR merge, stored log |
+| camera | shutter. | f/1.7 in sun: 1/5700 s, stuttering motion → ND filters back toward the 180° rule |
+| camera | bin. | 1.2 µm pixels at dusk: SNR 3 → quad-Bayer 2×2 binning: 12 MP, SNR 6 (simulated photons) |
+| gimbal | level. | the body tips ±30° to fly → a 1 kHz loop holds the camera within 0.2° (simulated) |
+| gimbal | damp. | motor buzz at ~150 Hz → rubber isolators tuned to 25 Hz pass 4.5 % (transmissibility) |
+| gimbal | lock. | middle axis at 90° lines up the outer and inner → keep roll small; motor speed ∝ 1/cos(roll) |
+| gimbal | portrait. | a 9:16 crop keeps 32 % of a 16:9 frame → roll the camera 90° and keep all of it |
+| link | budget. | −6 dB per doubling of distance → step the bitrate down: 1080p60 to 8 km, 720p to 25 km |
+| link | fresnel. | trees under the line of sight still clip the radio's ellipse (−5.4 dB) → fly higher |
+| link | hop. | 2.4 GHz is shared with everyone → listen, hop across channels and bands (3 lost slots vs 15) |
+| link | lag. | every stage adds delay: 110 ms = 1.8 m at 16 m/s → slice the frame so stages overlap: 45 ms |
+| navigate | bowl. | a compass 80° off turns position hold into a growing spiral → cross-check with GPS velocity |
+| navigate | home. | GPS lands it ±1.5 m from takeoff, maybe in the lake → climb, fly back, land on the takeoff photo |
+| navigate | reserve. | the battery to get home grows with distance → turn back where battery left meets battery needed |
+| navigate | avoid. | stereo sees ~18 m, 16 m/s needs 23 m to stop → avoidance caps speed at 12.9 m/s |
+| missions | orbit. | a circle in wind needs a different lean all the way round (3° to 35°) → steer it all from the subject point |
+| missions | map. | one photo can't measure depth → lawnmower grid with 80 / 70 % overlap, 1.1 cm per pixel at 60 m |
+| missions | follow. | the subject disappears behind trees → a constant-velocity Kalman filter predicts, doubt grows, snaps back |
+| missions | pano. | a 71° × 56° lens, a 360° × 180° sphere → 21 frames in rings of yaw at four tilts, stitched |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -77,9 +108,11 @@ uv run --no-project --with fonttools --with brotli python src/sensors.py     # o
 uv run --no-project --with fonttools --with brotli python src/drawio_art.py  # out/drawio/*.drawio + out/svg
 uv run --no-project --with fonttools --with brotli python src/robots.py      # out/robots/<robot>/*.svg
 uv run --no-project --with fonttools --with brotli python src/localization.py # out/localization/<domain>/*.svg
+uv run --no-project --with fonttools --with brotli python src/drone.py       # out/drone/<part>/*.svg
 ./src/render.sh                                                              # out/png/*.png (2160×2700)
 ./src/render.sh out/robots                                                   # a PNG beside every robot SVG
 ./src/render.sh out/localization                                             # a PNG beside every localization SVG
+./src/render.sh out/drone                                                    # a PNG beside every drone SVG
 ```
 
 - SVGs are self-contained: fonts are subset and embedded.
