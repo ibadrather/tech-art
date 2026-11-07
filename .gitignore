@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.uv/
+*.egg-info/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# draw.io backups / temp
+*.drawio.bkp
+*.drawio.dtmp
+.$*.drawio*
+
+# Env
+.env
