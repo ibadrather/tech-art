@@ -163,6 +163,32 @@ one costs, why it drifts, and how to live with it. Each poster carries an **issu
 | use | mount. | 15 cm off-centre on a robot spinning at 3 rad/s reads 1.35 m/s² → mount at the centre or subtract ω×(ω×r) + α×r |
 | use | alias. | 190 Hz motor buzz sampled at 200 Hz becomes a 10 Hz wobble → sample at 1 kHz, low-pass in the chip, decimate: −30 dB |
 
+**Vision** (`src/vision.py`, one folder per theme in `out/vision/`). The first things to know about cameras
+and computer vision, kept as quiet as the minimal set: one word, one drawing, one formula.
+
+| Theme | Poster | Idea |
+| --- | --- | --- |
+| camera | pinhole. | a box with a hole: rays cross and land upside down, x = f·X/Z |
+| camera | lens. | three rays from one point meet again behind a thin lens: 1/f = 1/u + 1/v |
+| camera | zoom. | one 36 mm sensor behind 24 mm and 85 mm lenses: 74° vs 24° field of view |
+| camera | intrinsic. | the camera matrix K: origin top-left, principal point (cx, cy), fx and fy in pixels |
+| camera | distort. | a straight grid pulled into a barrel by x(1 + k1·r² + k2·r⁴) |
+| camera | fisheye. | where a ray at θ lands: pinhole f·tan θ runs off to infinity, fisheye f·θ stays on the sensor |
+| shutter | rolling. | rows read one after another: a moving bar leans, exposures staircase in time |
+| shutter | global. | every row exposed at the same instant: the bar stays straight |
+| shutter | expose. | f/1.4 at 1/1000 to f/8 at 1/30: half the aperture area, twice the time, same light |
+| shutter | blur. | a dot at 12 000 px/s smears 12, 48 and 200 px at 1/1000, 1/250 and 1/60 s |
+| geometry | ray. | back-projection: one pixel is a ray, every depth along it lands on the same pixel |
+| geometry | size. | twice as far, half as tall: know the size H, measure h, get Z = f·H/h |
+| geometry | pose. | the camera t away from the world origin, turned by R: X_cam = R·X_world + t |
+| geometry | disparity. | two cameras a baseline apart see one point shifted by d: Z = f·B/d |
+| geometry | vanish. | rails and a line of poles, projected: parallel lines all end at one point on the horizon |
+| geometry | homography. | a checkerboard seen at an angle, straightened by one 3×3 matrix fitted to its 4 corners |
+| geometry | epipolar. | a pixel in the left view is a ray; the right camera sees that ray as a line: x2ᵀ F x1 = 0 |
+| image | pixel. | an image is a grid of numbers: a dark disc, its edge pixels part-covered |
+| image | bayer. | the RGGB colour filter mosaic: one colour per pixel, half of them green |
+| image | edge. | slide [-1, 0, +1] along a row of pixels: the output spikes where the brightness jumps |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -179,6 +205,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     drone/<part>/                   drone.py
     gps/<stage>/                    gps.py
     imu/<theme>/                    imu.py
+    vision/<theme>/                 vision.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -209,6 +236,7 @@ uv run --no-project --with fonttools --with brotli python src/localization.py # 
 uv run --no-project --with fonttools --with brotli python src/drone.py        # out/drone/<part>/*.svg
 uv run --no-project --with fonttools --with brotli python src/gps.py          # out/gps/<stage>/*.svg
 uv run --no-project --with fonttools --with brotli python src/imu.py          # out/imu/<theme>/*.svg
+uv run --no-project --with fonttools --with brotli python src/vision.py       # out/vision/<theme>/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery

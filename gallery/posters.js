@@ -1159,5 +1159,205 @@ window.POSTERS = [
   "thumb": "thumbs/imu/use/alias.jpg",
   "png": "../out/imu/use/alias.png",
   "svg": "../out/imu/use/alias.svg"
+ },
+ {
+  "id": "vision/camera/pinhole",
+  "name": "pinhole",
+  "series": "vision",
+  "group": "camera",
+  "idea": "a box with a hole: rays cross and land upside down, x = f·X/Z",
+  "thumb": "thumbs/vision/camera/pinhole.jpg",
+  "png": "../out/vision/camera/pinhole.png",
+  "svg": "../out/vision/camera/pinhole.svg"
+ },
+ {
+  "id": "vision/camera/lens",
+  "name": "lens",
+  "series": "vision",
+  "group": "camera",
+  "idea": "three rays from one point meet again behind a thin lens: 1/f = 1/u + 1/v",
+  "thumb": "thumbs/vision/camera/lens.jpg",
+  "png": "../out/vision/camera/lens.png",
+  "svg": "../out/vision/camera/lens.svg"
+ },
+ {
+  "id": "vision/camera/zoom",
+  "name": "zoom",
+  "series": "vision",
+  "group": "camera",
+  "idea": "one 36 mm sensor behind 24 mm and 85 mm lenses: 74° vs 24° field of view",
+  "thumb": "thumbs/vision/camera/zoom.jpg",
+  "png": "../out/vision/camera/zoom.png",
+  "svg": "../out/vision/camera/zoom.svg"
+ },
+ {
+  "id": "vision/camera/intrinsic",
+  "name": "intrinsic",
+  "series": "vision",
+  "group": "camera",
+  "idea": "the camera matrix K: origin top-left, principal point (cx, cy), fx and fy in pixels",
+  "thumb": "thumbs/vision/camera/intrinsic.jpg",
+  "png": "../out/vision/camera/intrinsic.png",
+  "svg": "../out/vision/camera/intrinsic.svg"
+ },
+ {
+  "id": "vision/camera/distort",
+  "name": "distort",
+  "series": "vision",
+  "group": "camera",
+  "idea": "a straight grid pulled into a barrel by x(1 + k1·r² + k2·r⁴)",
+  "thumb": "thumbs/vision/camera/distort.jpg",
+  "png": "../out/vision/camera/distort.png",
+  "svg": "../out/vision/camera/distort.svg"
+ },
+ {
+  "id": "vision/camera/fisheye",
+  "name": "fisheye",
+  "series": "vision",
+  "group": "camera",
+  "idea": "where a ray at θ lands: pinhole f·tan θ runs off to infinity, fisheye f·θ stays on the sensor",
+  "thumb": "thumbs/vision/camera/fisheye.jpg",
+  "png": "../out/vision/camera/fisheye.png",
+  "svg": "../out/vision/camera/fisheye.svg"
+ },
+ {
+  "id": "vision/shutter/rolling",
+  "name": "rolling",
+  "series": "vision",
+  "group": "shutter",
+  "idea": "rows read one after another: a moving bar leans, exposures staircase in time",
+  "thumb": "thumbs/vision/shutter/rolling.jpg",
+  "png": "../out/vision/shutter/rolling.png",
+  "svg": "../out/vision/shutter/rolling.svg"
+ },
+ {
+  "id": "vision/shutter/global",
+  "name": "global",
+  "series": "vision",
+  "group": "shutter",
+  "idea": "every row exposed at the same instant: the bar stays straight",
+  "thumb": "thumbs/vision/shutter/global.jpg",
+  "png": "../out/vision/shutter/global.png",
+  "svg": "../out/vision/shutter/global.svg"
+ },
+ {
+  "id": "vision/shutter/expose",
+  "name": "expose",
+  "series": "vision",
+  "group": "shutter",
+  "idea": "f/1.4 at 1/1000 to f/8 at 1/30: half the aperture area, twice the time, same light",
+  "thumb": "thumbs/vision/shutter/expose.jpg",
+  "png": "../out/vision/shutter/expose.png",
+  "svg": "../out/vision/shutter/expose.svg"
+ },
+ {
+  "id": "vision/shutter/blur",
+  "name": "blur",
+  "series": "vision",
+  "group": "shutter",
+  "idea": "a dot at 12 000 px/s smears 12, 48 and 200 px at 1/1000, 1/250 and 1/60 s",
+  "thumb": "thumbs/vision/shutter/blur.jpg",
+  "png": "../out/vision/shutter/blur.png",
+  "svg": "../out/vision/shutter/blur.svg"
+ },
+ {
+  "id": "vision/geometry/ray",
+  "name": "ray",
+  "series": "vision",
+  "group": "geometry",
+  "idea": "back-projection: one pixel is a ray, every depth along it lands on the same pixel",
+  "thumb": "thumbs/vision/geometry/ray.jpg",
+  "png": "../out/vision/geometry/ray.png",
+  "svg": "../out/vision/geometry/ray.svg"
+ },
+ {
+  "id": "vision/geometry/size",
+  "name": "size",
+  "series": "vision",
+  "group": "geometry",
+  "idea": "twice as far, half as tall: know the size H, measure h, get Z = f·H/h",
+  "thumb": "thumbs/vision/geometry/size.jpg",
+  "png": "../out/vision/geometry/size.png",
+  "svg": "../out/vision/geometry/size.svg"
+ },
+ {
+  "id": "vision/geometry/pose",
+  "name": "pose",
+  "series": "vision",
+  "group": "geometry",
+  "idea": "the camera t away from the world origin, turned by R: X_cam = R·X_world + t",
+  "thumb": "thumbs/vision/geometry/pose.jpg",
+  "png": "../out/vision/geometry/pose.png",
+  "svg": "../out/vision/geometry/pose.svg"
+ },
+ {
+  "id": "vision/geometry/disparity",
+  "name": "disparity",
+  "series": "vision",
+  "group": "geometry",
+  "idea": "two cameras a baseline apart see one point shifted by d: Z = f·B/d",
+  "thumb": "thumbs/vision/geometry/disparity.jpg",
+  "png": "../out/vision/geometry/disparity.png",
+  "svg": "../out/vision/geometry/disparity.svg"
+ },
+ {
+  "id": "vision/geometry/vanish",
+  "name": "vanish",
+  "series": "vision",
+  "group": "geometry",
+  "idea": "rails and a line of poles, projected: parallel lines all end at one point on the horizon",
+  "thumb": "thumbs/vision/geometry/vanish.jpg",
+  "png": "../out/vision/geometry/vanish.png",
+  "svg": "../out/vision/geometry/vanish.svg"
+ },
+ {
+  "id": "vision/geometry/homography",
+  "name": "homography",
+  "series": "vision",
+  "group": "geometry",
+  "idea": "a checkerboard seen at an angle, straightened by one 3×3 matrix fitted to its 4 corners",
+  "thumb": "thumbs/vision/geometry/homography.jpg",
+  "png": "../out/vision/geometry/homography.png",
+  "svg": "../out/vision/geometry/homography.svg"
+ },
+ {
+  "id": "vision/geometry/epipolar",
+  "name": "epipolar",
+  "series": "vision",
+  "group": "geometry",
+  "idea": "a pixel in the left view is a ray; the right camera sees that ray as a line: x2ᵀ F x1 = 0",
+  "thumb": "thumbs/vision/geometry/epipolar.jpg",
+  "png": "../out/vision/geometry/epipolar.png",
+  "svg": "../out/vision/geometry/epipolar.svg"
+ },
+ {
+  "id": "vision/image/pixel",
+  "name": "pixel",
+  "series": "vision",
+  "group": "image",
+  "idea": "an image is a grid of numbers: a dark disc, its edge pixels part-covered",
+  "thumb": "thumbs/vision/image/pixel.jpg",
+  "png": "../out/vision/image/pixel.png",
+  "svg": "../out/vision/image/pixel.svg"
+ },
+ {
+  "id": "vision/image/bayer",
+  "name": "bayer",
+  "series": "vision",
+  "group": "image",
+  "idea": "the RGGB colour filter mosaic: one colour per pixel, half of them green",
+  "thumb": "thumbs/vision/image/bayer.jpg",
+  "png": "../out/vision/image/bayer.png",
+  "svg": "../out/vision/image/bayer.svg"
+ },
+ {
+  "id": "vision/image/edge",
+  "name": "edge",
+  "series": "vision",
+  "group": "image",
+  "idea": "slide [-1, 0, +1] along a row of pixels: the output spikes where the brightness jumps",
+  "thumb": "thumbs/vision/image/edge.jpg",
+  "png": "../out/vision/image/edge.png",
+  "svg": "../out/vision/image/edge.svg"
  }
 ];

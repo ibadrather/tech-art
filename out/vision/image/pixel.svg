@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350"><style>@font-face{font-family:'EdrPoppins';src:url(data:font/woff2;base64,d09GMgABAAAAAANoAAwAAAAABlgAAAMaAAQBBgAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcVAZgAGQKgyCCWgE2AiQDJAsUAAQgBYNeByAbLQVIHgVuazPJiYr6tNAC1+0Yz9Pfp+e+rOt4OELbpuFQLJRWrIKZKhSsVsB+A/KsCRZwtkSuJ9VaAOkR/tI/UE+/9vofILz235+qD3Oxsc7zSUJB3Os8uiipBUu9YlEn1zaNTQUqN8IFKjzet0vHxpgvU8/z7ZR0sICuQsWIndkZRCwaqARILTMMRerMR8tEdoEGi98vIJ/jNFrEikYAgaARIGIRokUjEEh0rZEsRxSUr6DhujR3sHECtKQ0/pbzzezBZTAm1/P79mquc+Q4QICyJC8AFmhQQA3MUQgwR/OCsVQUWFBp0aFbxORK2697aKdttthoVYTEO44xBV3wAb4BUAdAkMgFiBf1c2MSaTojNZF+dJuYcydh2QXMPh//Mzdxz6OEZWUJDx/GL338mJjz5EnCskePEH4/jl/6kHnzHG41b8aH6PiouvJfIG+26qjI+JgEvHssioeY/ejR8X5PnhBJ4WB8VWVCqCyhvKIM8amOTubzk0XCPj6/TwhLGbjBYTMMcDP6TTmeRa1N3plm85xQ2DRnhsnvmW4wTvetFkc5Rg3UmUdMQuvTZ0LhchPjaNlyGe5++Lj8I378r2WHW8aa9LNDIf3csRbL8GrtjbLl7HKvYLXEqheKRXqRxMayJQcvEuvFa/TDpNex5mMbj2edzNgZOdpydOOJjFNZuLFp84kDrwuoJ/ryhyhJXcqw37EU9RXgZ/+RGwC/WQoJYv//lQVUKqCFBAT+RVwOAkzMRBAftlJ+Af6A1KEoHShNNgYUYSoHnUJJ/abOO/ibDycViwYPALS1ohD1OMAbuCICYy8iJbuKKCPcHaUZihKfZCEak9wdCWCVQTDgREwxVoc27cZjsDQ1jRHUrgXDG4MRHXqN67pjcTq1aFJTjTbBeO04Y4kn2eaMV9PGGUJNrU0Hmj5BI5UmnB7q/lutOBP0ajbWFOq58dL53y2gRY8OepxuzfxatJmgW4OxbILMPIZitMo+01HR0NBpNKgZ5sWVdcAYE0bVN4LmzPgZNRzGwoRKk/FYa7wOnLu0h+qtyzgUQLVYCQA=) format('woff2');}@font-face{font-family:'EdrFira';src:url(data:font/woff2;base64,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) format('woff2');}@font-face{font-family:'EdrFiraLight';src:url(data:font/woff2;base64,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) format('woff2');}</style><rect width="1080" height="1350" fill="#FFFFFF"/><rect x="190" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="295" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="330" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="365" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="400" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="435" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="470" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="505" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="540" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="575" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="610" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="645" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="680" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="715" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="750" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="785" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="820" y="300" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="341" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="370" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="370" width="70" height="70" fill="#E9E9E9"/>
+<text x="295" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="330" y="370" width="70" height="70" fill="#E9E9E9"/>
+<text x="365" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="400" y="370" width="70" height="70" fill="#DADADA"/>
+<text x="435" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="470" y="370" width="70" height="70" fill="#A4A4A4"/>
+<text x="505" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="540" y="370" width="70" height="70" fill="#A4A4A4"/>
+<text x="575" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="610" y="370" width="70" height="70" fill="#DADADA"/>
+<text x="645" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="680" y="370" width="70" height="70" fill="#E9E9E9"/>
+<text x="715" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="750" y="370" width="70" height="70" fill="#E9E9E9"/>
+<text x="785" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="820" y="370" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="411" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="440" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="481" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="440" width="70" height="70" fill="#E9E9E9"/>
+<text x="295" y="481" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="330" y="440" width="70" height="70" fill="#A7A7A7"/>
+<text x="365" y="481" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">163</text>
+<rect x="400" y="440" width="70" height="70" fill="#2A2A2A"/>
+<text x="435" y="481" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="470" y="440" width="70" height="70" fill="#212121"/>
+<text x="505" y="481" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="540" y="440" width="70" height="70" fill="#212121"/>
+<text x="575" y="481" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="610" y="440" width="70" height="70" fill="#2A2A2A"/>
+<text x="645" y="481" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="680" y="440" width="70" height="70" fill="#A7A7A7"/>
+<text x="715" y="481" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">163</text>
+<rect x="750" y="440" width="70" height="70" fill="#E9E9E9"/>
+<text x="785" y="481" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="820" y="440" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="481" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="510" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="551" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="510" width="70" height="70" fill="#DADADA"/>
+<text x="295" y="551" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="330" y="510" width="70" height="70" fill="#2A2A2A"/>
+<text x="365" y="551" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="400" y="510" width="70" height="70" fill="#212121"/>
+<text x="435" y="551" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="470" y="510" width="70" height="70" fill="#212121"/>
+<text x="505" y="551" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="540" y="510" width="70" height="70" fill="#212121"/>
+<text x="575" y="551" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="610" y="510" width="70" height="70" fill="#212121"/>
+<text x="645" y="551" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="680" y="510" width="70" height="70" fill="#2A2A2A"/>
+<text x="715" y="551" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="750" y="510" width="70" height="70" fill="#DADADA"/>
+<text x="785" y="551" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="820" y="510" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="551" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="580" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="621" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="580" width="70" height="70" fill="#A4A4A4"/>
+<text x="295" y="621" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="330" y="580" width="70" height="70" fill="#212121"/>
+<text x="365" y="621" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="400" y="580" width="70" height="70" fill="#212121"/>
+<text x="435" y="621" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="470" y="580" width="70" height="70" fill="#212121"/>
+<text x="505" y="621" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="540" y="580" width="70" height="70" fill="#212121"/>
+<text x="575" y="621" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="610" y="580" width="70" height="70" fill="#212121"/>
+<text x="645" y="621" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="680" y="580" width="70" height="70" fill="#212121"/>
+<text x="715" y="621" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="750" y="580" width="70" height="70" fill="#A4A4A4"/>
+<text x="785" y="621" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="820" y="580" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="621" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="650" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="691" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="650" width="70" height="70" fill="#A4A4A4"/>
+<text x="295" y="691" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="330" y="650" width="70" height="70" fill="#212121"/>
+<text x="365" y="691" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="400" y="650" width="70" height="70" fill="#212121"/>
+<text x="435" y="691" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="470" y="650" width="70" height="70" fill="#212121"/>
+<text x="505" y="691" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="540" y="650" width="70" height="70" fill="#212121"/>
+<text x="575" y="691" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="610" y="650" width="70" height="70" fill="#212121"/>
+<text x="645" y="691" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="680" y="650" width="70" height="70" fill="#212121"/>
+<text x="715" y="691" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="750" y="650" width="70" height="70" fill="#A4A4A4"/>
+<text x="785" y="691" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="820" y="650" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="691" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="720" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="761" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="720" width="70" height="70" fill="#DADADA"/>
+<text x="295" y="761" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="330" y="720" width="70" height="70" fill="#2A2A2A"/>
+<text x="365" y="761" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="400" y="720" width="70" height="70" fill="#212121"/>
+<text x="435" y="761" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="470" y="720" width="70" height="70" fill="#212121"/>
+<text x="505" y="761" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="540" y="720" width="70" height="70" fill="#212121"/>
+<text x="575" y="761" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="610" y="720" width="70" height="70" fill="#212121"/>
+<text x="645" y="761" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="680" y="720" width="70" height="70" fill="#2A2A2A"/>
+<text x="715" y="761" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="750" y="720" width="70" height="70" fill="#DADADA"/>
+<text x="785" y="761" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="820" y="720" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="761" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="790" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="831" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="790" width="70" height="70" fill="#E9E9E9"/>
+<text x="295" y="831" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="330" y="790" width="70" height="70" fill="#A7A7A7"/>
+<text x="365" y="831" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">163</text>
+<rect x="400" y="790" width="70" height="70" fill="#2A2A2A"/>
+<text x="435" y="831" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="470" y="790" width="70" height="70" fill="#212121"/>
+<text x="505" y="831" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="540" y="790" width="70" height="70" fill="#212121"/>
+<text x="575" y="831" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">22</text>
+<rect x="610" y="790" width="70" height="70" fill="#2A2A2A"/>
+<text x="645" y="831" font-family="EdrFiraLight" font-size="16" fill="#FFFFFF" text-anchor="middle" style="white-space:pre">32</text>
+<rect x="680" y="790" width="70" height="70" fill="#A7A7A7"/>
+<text x="715" y="831" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">163</text>
+<rect x="750" y="790" width="70" height="70" fill="#E9E9E9"/>
+<text x="785" y="831" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="820" y="790" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="831" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="860" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="860" width="70" height="70" fill="#E9E9E9"/>
+<text x="295" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="330" y="860" width="70" height="70" fill="#E9E9E9"/>
+<text x="365" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="400" y="860" width="70" height="70" fill="#DADADA"/>
+<text x="435" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="470" y="860" width="70" height="70" fill="#A4A4A4"/>
+<text x="505" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="540" y="860" width="70" height="70" fill="#A4A4A4"/>
+<text x="575" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">160</text>
+<rect x="610" y="860" width="70" height="70" fill="#DADADA"/>
+<text x="645" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">216</text>
+<rect x="680" y="860" width="70" height="70" fill="#E9E9E9"/>
+<text x="715" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="750" y="860" width="70" height="70" fill="#E9E9E9"/>
+<text x="785" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="820" y="860" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="901" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="225" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="260" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="295" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="330" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="365" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="400" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="435" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="470" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="505" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="540" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="575" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="610" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="645" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="680" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="715" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="750" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="785" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="820" y="930" width="70" height="70" fill="#E9E9E9"/>
+<text x="855" y="971" font-family="EdrFiraLight" font-size="16" fill="#0C0C0C" text-anchor="middle" style="white-space:pre">232</text>
+<rect x="190" y="300" width="700" height="700" fill="none" stroke="#0C0C0C" stroke-width="2"/>
+<line x1="190" y1="274" x2="302.8" y2="274" stroke="#4531CC" stroke-width="3" stroke-linecap="round"/>
+<polygon points="312.04,274 298.18,282 298.18,266" fill="#4531CC"/>
+<text x="324" y="280" font-family="EdrFiraLight" font-size="20" fill="#4531CC" text-anchor="start" style="white-space:pre">u</text>
+<line x1="164" y1="300" x2="164" y2="412.8" stroke="#4531CC" stroke-width="3" stroke-linecap="round"/>
+<polygon points="164,422.04 156,408.18 172,408.18" fill="#4531CC"/>
+<text x="164" y="450" font-family="EdrFiraLight" font-size="20" fill="#4531CC" text-anchor="middle" style="white-space:pre">v</text>
+<text x="84" y="154" font-family="EdrPoppins" font-size="92" fill="#4531CC" text-anchor="start" style="white-space:pre" letter-spacing="-2">pixel.</text>
+<text x="88" y="202" font-family="EdrFiraLight" font-size="20" fill="#6D6D6D" text-anchor="start" style="white-space:pre">an image is a grid of numbers</text>
+<polygon points="1080,1207.5 1080,1350 915,1350" fill="#DAD6F5" opacity="1"/>
+<g transform="translate(1018 1306) scale(0.10345) translate(-0.0 -0.0)" opacity="1.0"><path fill="#8F83E0" d="M286.11,71l26.37-14V233H286.11V211.07A48.21,48.21,0,0,1,269.89,227q-10,6-23.44,6a64.58,64.58,0,0,1-25.86-5.19A67.94,67.94,0,0,1,185,192.19a67.05,67.05,0,0,1,0-51.78,67.8,67.8,0,0,1,35.61-35.67,64.41,64.41,0,0,1,25.86-5.2q13.43,0,23.44,6a48.77,48.77,0,0,1,16.22,15.78ZM246.7,207.53A34.65,34.65,0,0,0,266.22,202a37,37,0,0,0,13-14.89,49,49,0,0,0-.07-41.7,37.7,37.7,0,0,0-13-14.89A34.37,34.37,0,0,0,246.7,125a37.56,37.56,0,0,0-20.09,5.58,41.52,41.52,0,0,0-14.45,15,41,41,0,0,0-5.38,20.78,40.15,40.15,0,0,0,5.51,20.86A42.13,42.13,0,0,0,226.86,202,37.43,37.43,0,0,0,246.7,207.53Z"/><path fill="#8F83E0" d="M331.58,233V106.26H358v13.43a47.13,47.13,0,0,1,16.22-12.42A48,48,0,0,1,395,102.7,53.11,53.11,0,0,1,409,104.61L398.5,131.22a27.49,27.49,0,0,0-9.88-1.9,29.64,29.64,0,0,0-15.34,4.12,31.5,31.5,0,0,0-11.15,11.09A29.46,29.46,0,0,0,358,160v73Z"/><path fill="#8F83E0" d="M89,155.44v20.15h77a74.72,74.72,0,0,0-2.41-29.22A68.94,68.94,0,0,0,150.91,122a61.87,61.87,0,0,0-20.78-16.6,61.57,61.57,0,0,0-51.34-.83A63.49,63.49,0,0,0,58.58,119,68.32,68.32,0,0,0,40,166.33,67.31,67.31,0,0,0,71.51,224a58.88,58.88,0,0,0,31.88,9,58.66,58.66,0,0,0,34.34-10.7,66.4,66.4,0,0,0,22.94-27.58l-26.74-6.21a38,38,0,0,1-13,13.31,33.07,33.07,0,0,1-17.55,4.82,34.93,34.93,0,0,1-16.55-4.18A35.83,35.83,0,0,1,82,199.2c-9.38-6.59-15.76-19.56-15.76-34.48s6.4-27.92,15.8-34.51A38.69,38.69,0,0,1,86.72,127a34.45,34.45,0,0,1,33.46.07A38.73,38.73,0,0,1,133,138.89a37.9,37.9,0,0,1,6.4,16.55Z"/><path fill="#8F83E0" d="M412.81,206.64A13.18,13.18,0,1,0,426,219.82,13.19,13.19,0,0,0,412.81,206.64Z"/></g>
+<rect x="84" y="1040" width="56" height="5" fill="#4531CC"/>
+<text x="84" y="1092" font-family="EdrFira" font-size="22" style="white-space:pre;font-variant-ligatures:contextual"><tspan fill="#0C0C0C">img</tspan><tspan fill="#6D6D6D">[</tspan><tspan fill="#0C0C0C">v</tspan><tspan fill="#6D6D6D">,</tspan><tspan fill="#0C0C0C"> </tspan><tspan fill="#0C0C0C">u</tspan><tspan fill="#6D6D6D">]</tspan><tspan fill="#0C0C0C">     </tspan><tspan fill="#6D6D6D"># row v, column u · 0 is black, 255 is white</tspan></text></svg>
