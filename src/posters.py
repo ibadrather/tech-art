@@ -1,4 +1,4 @@
-"""Seven minimal robotics posters, each drawn from the maths or code it shows.
+"""Six minimal robotics posters, each drawn from the maths or code it shows.
 
 Run:  uv run --no-project --with fonttools --with brotli python src/posters.py
 """
@@ -239,70 +239,6 @@ int main() {
 
 
 # ----------------------------------------------------------------------------
-def build() -> Svg:
-    """A robot face built from a triangular lattice, like the brand book cover."""
-    svg = Svg(P.white)
-    rng = random.Random(3)
-    s = 34
-    h = s * math.sqrt(3) / 2
-    cx, cy = W / 2, 660
-
-    def in_rrect(x, y, x0, y0, x1, y1, r):
-        qx = max(x0 + r - x, 0, x - (x1 - r))
-        qy = max(y0 + r - y, 0, y - (y1 - r))
-        return x0 <= x <= x1 and y0 <= y <= y1 and qx * qx + qy * qy <= r * r
-
-    def colour(gx, gy):
-        dx, dy = gx - cx, gy - cy
-        for sx in (-1, 1):
-            ex, ey = cx + sx * 112, cy - 40
-            d = math.hypot(gx - ex, gy - ey)
-            if math.hypot(gx - ex - 12, gy - ey - 6) < 24:
-                return P.black
-            if d < 58:
-                return P.white
-        smile = math.hypot(dx, gy - (cy + 10))
-        if abs(smile - 118) < 15 and gy > cy + 70:
-            return P.teal
-        if in_rrect(gx, gy, cx - 240, cy - 190, cx + 240, cy + 185, 64):
-            return P.blue if rng.random() < 0.78 else P.blue_80
-        if abs(dx) < 10 and cy - 300 < gy < cy - 185:
-            return P.black
-        if math.hypot(dx, gy - (cy - 318)) < 34:
-            return P.teal
-        if 240 < abs(dx) < 290 and abs(dy + 10) < 60:
-            return P.black
-        if cy + 185 < gy < cy + 250 and abs(dx) < 90:
-            return P.black_80
-        dist = math.hypot(dx, dy * 1.25)
-        if rng.random() < max(0.0, 0.42 - dist / 1100):
-            return rng.choice([P.blue_20, P.lavender_20, P.lavender_60, P.blue_20])
-        return None
-
-    rows = int((ART[3] + 40 - ART[1]) / h)
-    for r in range(rows):
-        for c in range(-2, int(W / (s / 2)) + 2):
-            up = (r + c) % 2 == 0
-            x, y = c * s / 2, ART[1] - 10 + r * h
-            tri = [(x, y + h), (x + s / 2, y), (x + s, y + h)] if up else [(x, y), (x + s, y), (x + s / 2, y + h)]
-            gx, gy = sum(p[0] for p in tri) / 3, sum(p[1] for p in tri) / 3
-            if not (M - 20 < gx < W - M + 20):
-                continue
-            col = colour(gx, gy)
-            if col:
-                svg.poly(tri, col, stroke=P.white, stroke_width=1.2, stroke_linejoin="round")
-
-    svg.frame("build.", "triangles all the way down")
-    code_rule(svg)
-    svg.code(M, CODE_Y, """
-class Robot:
-    def __init__(self):
-        self.mood = "curious"
-        self.parts = [Sensor(), Brain(), Motor()]""", "py", 21)
-    return svg
-
-
-# ----------------------------------------------------------------------------
 def drive() -> Svg:
     """A differential-drive robot following a wandering path: two wheel tracks and its poses."""
     svg = Svg(P.cream)
@@ -434,7 +370,7 @@ while open_set:
     return svg
 
 
-POSTERS = [reach, see, settle, hello, build, drive, plan]
+POSTERS = [reach, see, settle, hello, drive, plan]
 
 if __name__ == "__main__":
     for fn in POSTERS:

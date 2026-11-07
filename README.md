@@ -10,7 +10,6 @@ from the maths or code printed on it.
 | see. | a laser scan: only the points the robot perceives, never the room | Python → SVG |
 | settle. | one plant, three PID tunings | Python → SVG |
 | hello. | Python vs C++ on a brand diagonal | Python → SVG |
-| build. | a robot face out of a triangular lattice (brand cover motif) | Python → SVG |
 | drive. | differential drive: two wheel tracks and the poses along the path | Python → SVG |
 | plan. | A* on an occupancy grid, explored cells fading by order | Python → SVG |
 | connect. | node graph with brand icons, topics on the arrows | draw.io |
@@ -279,31 +278,16 @@ set's rules kept: one word, one drawing, one line of code, from the light coming
 | cloud. | a torus of points, nearer ones bigger and brighter: no surface yet |
 | mesh. | the points joined into triangles: a bump in a sheet, one face filled |
 
-**Lattice** (`src/lattice.py`, `out/lattice/`). build.'s method as a series: a triangular lattice over the paper,
-and a stack of shapes (first match wins) that decides the colour of each triangle's centroid. Nothing else is drawn.
+**Mosaic** (`src/mosaic.py`, `out/mosaic/`). The brand cover's method: a triangular lattice over the paper, and a
+stack of shapes (first match wins) that decides the colour of each triangle's centroid. Nothing else is drawn.
 
 | Poster | Idea |
 | --- | --- |
-| hi. | a humanoid waving: one arm down, one up, motion arcs by the hand |
-| scan. | a one-eyed robot's lidar fan: the wall lights up only inside the beam |
-| rover. | six wheels on a rocker-bogie, a mast camera and a high-gain dish, on sand |
-| quad. | a quadcopter from above: four rotor discs, each blade at its own angle |
-| weld. | an industrial arm at work, a spark of triangles where the torch meets the seam |
-| pup. | a robot dog side on: near legs in ink, far legs in grey, knees in teal |
-| dive. | an underwater robot with its own light, bubbles rising off the stern |
-| sweep. | a robot vacuum inside the Archimedean spiral it cleans along, older passes fading |
-| hexa. | a hexapod in a tripod gait: three feet down in ink, three swinging in light |
-| crawl. | a tracked robot with a camera mast and a gripper arm |
-| launch. | a rocket lifting off a pad of smoke, on black |
-| lander. | a lunar lander on grey ground, Earth over the horizon |
-| heart. | the heart curve (x² + y² − 1)³ − x²y³ ≤ 0, a heartbeat line running through it |
-| owl. | a robot owl on a branch: two lens eyes, ear tufts and a chevron belly |
-| chip. | a microcontroller: a die, 24 pins and traces out to vias |
+| build. | a robot face out of the lattice, like the brand book cover |
+| sweep. | a robot vacuum partway out along the spiral it cleans: older turns paler, nothing ahead of it |
 | gear. | two meshing spur gears, 12 teeth turning 8, the teeth a clamped cosine |
-| glitch. | a robot face with some lattice rows read late: shifted, with a colour fringe |
-| pals. | a tall robot holding the hand of a small round one, a heart between them |
-| bloom. | a robot head used as a flower pot, its eyes turned up at what grew |
-| astro. | a robot in a space helmet, a ringed planet behind |
+| heart. | the heart curve (x² + y² − 1)³ − x²y³ ≤ 0, a heartbeat line running through it |
+| launch. | a rocket climbing off the Earth's curve on black, the Moon ahead |
 
 **Epic** (`src/epic.py`, `out/epic/`). The opposite of the minimal set: one simulation run out to the edges of the
 paper, thousands of marks, every one computed by the line of code printed under it.
@@ -381,7 +365,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     vision/<theme>/                 vision.py
     photogrammetry/<step>/          photogrammetry.py
     still/                          still.py
-    lattice/                        lattice.py
+    mosaic/                         mosaic.py
     epic/                           epic.py
     rl/<theme>/                     rl.py
     soul/                           soul.py
@@ -418,7 +402,7 @@ uv run --no-project --with fonttools --with brotli python src/imu.py          # 
 uv run --no-project --with fonttools --with brotli python src/vision.py       # out/vision/<theme>/*.svg
 uv run --no-project --with fonttools --with brotli python src/photogrammetry.py  # out/photogrammetry/<step>/*.svg
 uv run --no-project --with fonttools --with brotli python src/still.py        # out/still/*.svg
-uv run --no-project --with fonttools --with brotli python src/lattice.py      # out/lattice/*.svg
+uv run --no-project --with fonttools --with brotli python src/mosaic.py       # out/mosaic/*.svg
 uv run --no-project --with fonttools --with brotli python src/epic.py         # out/epic/*.svg
 uv run --no-project --with fonttools --with brotli python src/rl.py           # out/rl/<theme>/*.svg
 uv run --no-project --with fonttools --with brotli python src/soul.py         # out/soul/*.svg
