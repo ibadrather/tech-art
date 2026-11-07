@@ -181,14 +181,16 @@ class Svg:
         self.add(f'<image x="{_fmt(x)}" y="{_fmt(y)}" width="{size}" height="{size}" href="data:image/svg+xml;base64,{data}"/>')
 
     def frame(self, title: str, kicker: str, dark=False, title_fill=None) -> None:
-        """Title top-left; the brand-book corner triangle bottom-right, carrying a small white logo mark."""
+        """Title top-left; the brand-book corner triangle bottom-right, carrying a small logo mark (both in light brand tints)."""
         m = CANVAS.margin
         ink = P.white if dark else P.black
         self.text(m, m + 70, title, "head", 92, title_fill or (P.white if dark else P.blue), letter_spacing="-2")
         self.text(m + 4, m + 118, kicker, "codel", 20, P.black_60 if not dark else P.blue_40)
         t = 150  # brand-book page marker: a triangle in the corner
-        self.poly([(self.w, self.h - t * 0.95), (self.w, self.h), (self.w - t * 1.1, self.h)], P.blue)
-        self.logo_mark(self.w - 62, self.h - 44, 30, P.white, 0.95)  # the mark sits inside the corner triangle
+        # light tints, so the marker stays quiet; on dark posters the tint is dimmed so it doesn't glare
+        tri, tri_op, mark = (P.blue_60, 0.3, P.blue_40) if dark else (P.blue_20, 1, P.blue_60)
+        self.poly([(self.w, self.h - t * 0.95), (self.w, self.h), (self.w - t * 1.1, self.h)], tri, opacity=tri_op)
+        self.logo_mark(self.w - 62, self.h - 44, 30, mark)  # the mark sits inside the corner triangle
         _ = ink
 
     # --- output -------------------------------------------------------------

@@ -81,10 +81,10 @@ class Drawio:
         self.text(M - 2, M - 8, 700, 120, title, "head", 92, P.blue)
         self.text(M + 4, M + 101, 800, 30, kicker, "code", 20, P.black_60)
         tri = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 143">'
-               f'<polygon points="165,0 165,143 0,143" fill="{P.blue}"/></svg>')
+               f'<polygon points="165,0 165,143 0,143" fill="{P.blue_20}"/></svg>')
         self.vertex(W - 165, H - 143, 165, 143, "",
                     "shape=image;imageAspect=0;image=data:image/svg+xml," + base64.b64encode(tri.encode()).decode() + ";")
-        self.image(W - 62, H - 44, 48, 30, data_uri(BRAND / "logo/logo-mark.svg", P.white), 95)
+        self.image(W - 62, H - 44, 48, 30, data_uri(BRAND / "logo/logo-mark.svg", P.blue_60))
 
     def save(self) -> Path:
         xml = (
