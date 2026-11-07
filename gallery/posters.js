@@ -91,6 +91,166 @@ window.POSTERS = [
   "svg": "../out/core/assemble.svg"
  },
  {
+  "id": "minimal/boot",
+  "name": "boot",
+  "series": "minimal",
+  "group": "",
+  "idea": "one command, three `[ ok ]` checks and a cursor on black",
+  "thumb": "thumbs/minimal/boot.jpg",
+  "png": "../out/minimal/boot.png",
+  "svg": "../out/minimal/boot.svg"
+ },
+ {
+  "id": "minimal/blink",
+  "name": "blink",
+  "series": "minimal",
+  "group": "",
+  "idea": "the hello world of hardware: one LED and the 500 ms square wave that drives it",
+  "thumb": "thumbs/minimal/blink.jpg",
+  "png": "../out/minimal/blink.png",
+  "svg": "../out/minimal/blink.svg"
+ },
+ {
+  "id": "minimal/zero",
+  "name": "zero",
+  "series": "minimal",
+  "group": "",
+  "idea": "every robot starts at the origin: an x arrow, a y arrow and a dot",
+  "thumb": "thumbs/minimal/zero.jpg",
+  "png": "../out/minimal/zero.png",
+  "svg": "../out/minimal/zero.svg"
+ },
+ {
+  "id": "minimal/loop",
+  "name": "loop",
+  "series": "minimal",
+  "group": "",
+  "idea": "sense, think, act: three dots on one circle, going round",
+  "thumb": "thumbs/minimal/loop.jpg",
+  "png": "../out/minimal/loop.png",
+  "svg": "../out/minimal/loop.svg"
+ },
+ {
+  "id": "minimal/step",
+  "name": "step",
+  "series": "minimal",
+  "group": "",
+  "idea": "a stepper motor's 200 ticks a turn, 37 of them taken (66.6°)",
+  "thumb": "thumbs/minimal/step.jpg",
+  "png": "../out/minimal/step.png",
+  "svg": "../out/minimal/step.svg"
+ },
+ {
+  "id": "minimal/grip",
+  "name": "grip",
+  "series": "minimal",
+  "group": "",
+  "idea": "a parallel gripper closing on a ball until contact",
+  "thumb": "thumbs/minimal/grip.jpg",
+  "png": "../out/minimal/grip.png",
+  "svg": "../out/minimal/grip.svg"
+ },
+ {
+  "id": "minimal/stop",
+  "name": "stop",
+  "series": "minimal",
+  "group": "",
+  "idea": "the emergency stop: a blue mushroom button in a cream ring",
+  "thumb": "thumbs/minimal/stop.jpg",
+  "png": "../out/minimal/stop.png",
+  "svg": "../out/minimal/stop.svg"
+ },
+ {
+  "id": "minimal/charge",
+  "name": "charge",
+  "series": "minimal",
+  "group": "",
+  "idea": "a battery with four cells of five, and the line that sends it home to the dock",
+  "thumb": "thumbs/minimal/charge.jpg",
+  "png": "../out/minimal/charge.png",
+  "svg": "../out/minimal/charge.svg"
+ },
+ {
+  "id": "minimal/go",
+  "name": "go",
+  "series": "minimal",
+  "group": "",
+  "idea": "a start triangle, a goal target and one dotted line between",
+  "thumb": "thumbs/minimal/go.jpg",
+  "png": "../out/minimal/go.png",
+  "svg": "../out/minimal/go.svg"
+ },
+ {
+  "id": "minimal/rotate",
+  "name": "rotate",
+  "series": "minimal",
+  "group": "",
+  "idea": "a square turned by θ, its starting pose dashed behind, and the 2×2 matrix that did it",
+  "thumb": "thumbs/minimal/rotate.jpg",
+  "png": "../out/minimal/rotate.png",
+  "svg": "../out/minimal/rotate.svg"
+ },
+ {
+  "id": "minimal/grid",
+  "name": "grid",
+  "series": "minimal",
+  "group": "",
+  "idea": "an 8 × 8 occupancy grid: dots are free, squares are not, one robot",
+  "thumb": "thumbs/minimal/grid.jpg",
+  "png": "../out/minimal/grid.png",
+  "svg": "../out/minimal/grid.svg"
+ },
+ {
+  "id": "minimal/think",
+  "name": "think",
+  "series": "minimal",
+  "group": "",
+  "idea": "a tiny neural network, 3 → 4 → 2, and `relu(W @ x + b)`",
+  "thumb": "thumbs/minimal/think.jpg",
+  "png": "../out/minimal/think.png",
+  "svg": "../out/minimal/think.svg"
+ },
+ {
+  "id": "minimal/debug",
+  "name": "debug",
+  "series": "minimal",
+  "group": "",
+  "idea": "code as grey bars, one highlighted line and its breakpoint",
+  "thumb": "thumbs/minimal/debug.jpg",
+  "png": "../out/minimal/debug.png",
+  "svg": "../out/minimal/debug.svg"
+ },
+ {
+  "id": "minimal/commit",
+  "name": "commit",
+  "series": "minimal",
+  "group": "",
+  "idea": "a branch leaves main, picks up three commits and merges home to HEAD",
+  "thumb": "thumbs/minimal/commit.jpg",
+  "png": "../out/minimal/commit.png",
+  "svg": "../out/minimal/commit.svg"
+ },
+ {
+  "id": "minimal/rest",
+  "name": "rest",
+  "series": "minimal",
+  "group": "",
+  "idea": "a robot asleep: closed eyes, an antenna and three rising z's",
+  "thumb": "thumbs/minimal/rest.jpg",
+  "png": "../out/minimal/rest.png",
+  "svg": "../out/minimal/rest.svg"
+ },
+ {
+  "id": "minimal/bye",
+  "name": "bye",
+  "series": "minimal",
+  "group": "",
+  "idea": "hello.'s other half: the diagonal flipped, `return 0;` and `exit(0)`",
+  "thumb": "thumbs/minimal/bye.jpg",
+  "png": "../out/minimal/bye.png",
+  "svg": "../out/minimal/bye.svg"
+ },
+ {
   "id": "sensors/feel",
   "name": "feel",
   "series": "sensors",

@@ -16,6 +16,28 @@ from the maths or code printed on it.
 | connect. | node graph with brand icons, topics on the arrows | draw.io |
 | assemble. | a rover from draw.io primitives, annotated like a spec sheet | draw.io |
 
+**Minimal** (`src/minimal.py`, `out/minimal/`). The quiet siblings of the core set: one word, one drawing,
+one line of code, two or three colours and a lot of empty paper.
+
+| Poster | Idea |
+| --- | --- |
+| boot. | one command, three `[ ok ]` checks and a cursor on black |
+| blink. | the hello world of hardware: one LED and the 500 ms square wave that drives it |
+| zero. | every robot starts at the origin: an x arrow, a y arrow and a dot |
+| loop. | sense, think, act: three dots on one circle, going round |
+| step. | a stepper motor's 200 ticks a turn, 37 of them taken (66.6°) |
+| grip. | a parallel gripper closing on a ball until contact |
+| stop. | the emergency stop: a blue mushroom button in a cream ring |
+| charge. | a battery with four cells of five, and the line that sends it home to the dock |
+| go. | a start triangle, a goal target and one dotted line between |
+| rotate. | a square turned by θ, its starting pose dashed behind, and the 2×2 matrix that did it |
+| grid. | an 8 × 8 occupancy grid: dots are free, squares are not, one robot |
+| think. | a tiny neural network, 3 → 4 → 2, and `relu(W @ x + b)` |
+| debug. | code as grey bars, one highlighted line and its breakpoint |
+| commit. | a branch leaves main, picks up three commits and merges home to HEAD |
+| rest. | a robot asleep: closed eyes, an antenna and three rising z's |
+| bye. | hello.'s other half: the diagonal flipped, `return 0;` and `exit(0)` |
+
 **Sensors** (`src/sensors.py`):
 
 | Poster | Sensor | Idea |
@@ -150,6 +172,7 @@ Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner 
 ```
 out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png = contact sheet
     core/                           posters.py + drawio_art.py (also the .drawio sources)
+    minimal/                        minimal.py
     sensors/                        sensors.py
     robots/<robot>/                 robots.py
     localization/<domain>/          localization.py
@@ -180,6 +203,7 @@ with macOS `sips` — without them the gallery falls back to the full PNGs.
 uv run --no-project --with fonttools --with brotli python src/posters.py      # out/core/*.svg
 uv run --no-project --with fonttools --with brotli python src/sensors.py      # out/sensors/*.svg
 uv run --no-project --with fonttools --with brotli python src/drawio_art.py   # out/core/*.drawio + .svg
+uv run --no-project --with fonttools --with brotli python src/minimal.py      # out/minimal/*.svg
 uv run --no-project --with fonttools --with brotli python src/robots.py       # out/robots/<robot>/*.svg
 uv run --no-project --with fonttools --with brotli python src/localization.py # out/localization/<domain>/*.svg
 uv run --no-project --with fonttools --with brotli python src/drone.py        # out/drone/<part>/*.svg
