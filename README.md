@@ -316,6 +316,41 @@ paper, thousands of marks, every one computed by the line of code printed under 
 | swarm. | boids: 160 agents scattered at random find each other with three local rules and fly as one |
 | descend. | momentum gradient descent on a three-valley loss: 72 starts, each coloured by the valley it ends in |
 
+**RL** (`src/rl.py`, one folder per theme in `out/rl/`). Reinforcement learning, one idea each, with a lunar
+lander (LunarLander-v3's eight numbers and four buttons) as the running example. The value funnel is value iteration,
+the cliff routes are SARSA and Q-learning actually run, the overestimation is sampled; the learning curve is simulated.
+
+| Theme | Poster | Idea |
+| --- | --- | --- |
+| setup | agent. | the loop: the lander acts, the moon answers with a state and a reward |
+| setup | state. | eight numbers: x, y, vx, vy, angle, spin and two leg contacts, drawn on the lander |
+| setup | action. | Discrete(4): nothing, left engine, main engine, right engine |
+| setup | reward. | the reward terms to scale: +100 at rest, +10 a leg, −0.3 a frame of main engine, −100 crash |
+| setup | episode. | one flight, reset to touchdown, every step coloured by the sign of its reward, and G |
+| setup | discount. | γ^k for γ = 0.9 and 0.99, and the horizon 1/(1 − γ) where each fades |
+| maths | markov. | an MDP: air, pad, crash; fire or coast; the odds of each next state |
+| maths | bellman. | the backup diagram: max over the four actions of p · (r + γ V(s')) |
+| maths | value. | value iteration on a grid lander: the funnel of places it can still land from |
+| maths | advantage. | A = Q − V: four bars, the policy's average, who's above and who's below |
+| maths | bootstrap. | TD(0), 3-step and Monte Carlo: how many real rewards before trusting a guess |
+| value | qlearn. | a slice of the grid lander's Q-table: steer in near the pad, save fuel when it's hopeless |
+| value | cliff. | cliff walking: Q-learning takes the edge, SARSA (on-policy, ε = 0.1) the safe way round |
+| value | epsilon. | ε-greedy decaying from 1 to 0.05, and 160 real draws: random early, greedy late |
+| value | dqn. | a deep Q-network, 8 → 64 → 64 → 4, a real forward pass, take the biggest |
+| value | replay. | the replay buffer: a ring of transitions, a write head, a random batch of 8 |
+| value | target. | the target network: a frozen copy the online weights chase, refreshed every C steps |
+| value | double. | the max of noisy estimates climbs with more actions; double Q-learning stays at 0 |
+| value | dueling. | one V, four A's, recombined: q = v + a − a.mean() |
+| policy | reinforce. | policy gradient: after a good episode the actions it took get likelier |
+| policy | critic. | actor-critic: the actor acts, the critic judges, one TD error δ teaches both |
+| policy | gae. | GAE: the weight on δ k steps ahead is (γλ)^k, for λ = 0, 0.95 and 1 |
+| policy | clip. | PPO's clipped objective for A > 0 and A < 0: flat beyond 1 ± ε |
+| policy | entropy. | four policies from uniform (H = 1.39) to always-main (H = 0.17) |
+| policy | gauss. | continuous lander: a tanh-squashed Gaussian over main and lateral throttle |
+| policy | twin. | TD3 / SAC: two noisy critics, the target uses the lower |
+| map | zoo. | the family tree: q-learning, policy, both, model-based; DQN, PPO, SAC in blue |
+| map | solved. | a PPO learning curve (simulated): returns, rolling mean, solved at 200 |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -337,6 +372,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     still/                          still.py
     lattice/                        lattice.py
     epic/                           epic.py
+    rl/<theme>/                     rl.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -372,6 +408,7 @@ uv run --no-project --with fonttools --with brotli python src/photogrammetry.py 
 uv run --no-project --with fonttools --with brotli python src/still.py        # out/still/*.svg
 uv run --no-project --with fonttools --with brotli python src/lattice.py      # out/lattice/*.svg
 uv run --no-project --with fonttools --with brotli python src/epic.py         # out/epic/*.svg
+uv run --no-project --with fonttools --with brotli python src/rl.py           # out/rl/<theme>/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery

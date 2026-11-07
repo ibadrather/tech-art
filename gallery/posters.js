@@ -2369,5 +2369,285 @@ window.POSTERS = [
   "thumb": "thumbs/epic/descend.jpg",
   "png": "../out/epic/descend.png",
   "svg": "../out/epic/descend.svg"
+ },
+ {
+  "id": "rl/setup/agent",
+  "name": "agent",
+  "series": "rl",
+  "group": "setup",
+  "idea": "the loop: the lander acts, the moon answers with a state and a reward",
+  "thumb": "thumbs/rl/setup/agent.jpg",
+  "png": "../out/rl/setup/agent.png",
+  "svg": "../out/rl/setup/agent.svg"
+ },
+ {
+  "id": "rl/setup/state",
+  "name": "state",
+  "series": "rl",
+  "group": "setup",
+  "idea": "eight numbers: x, y, vx, vy, angle, spin and two leg contacts, drawn on the lander",
+  "thumb": "thumbs/rl/setup/state.jpg",
+  "png": "../out/rl/setup/state.png",
+  "svg": "../out/rl/setup/state.svg"
+ },
+ {
+  "id": "rl/setup/action",
+  "name": "action",
+  "series": "rl",
+  "group": "setup",
+  "idea": "Discrete(4): nothing, left engine, main engine, right engine",
+  "thumb": "thumbs/rl/setup/action.jpg",
+  "png": "../out/rl/setup/action.png",
+  "svg": "../out/rl/setup/action.svg"
+ },
+ {
+  "id": "rl/setup/reward",
+  "name": "reward",
+  "series": "rl",
+  "group": "setup",
+  "idea": "the reward terms to scale: +100 at rest, +10 a leg, −0.3 a frame of main engine, −100 crash",
+  "thumb": "thumbs/rl/setup/reward.jpg",
+  "png": "../out/rl/setup/reward.png",
+  "svg": "../out/rl/setup/reward.svg"
+ },
+ {
+  "id": "rl/setup/episode",
+  "name": "episode",
+  "series": "rl",
+  "group": "setup",
+  "idea": "one flight, reset to touchdown, every step coloured by the sign of its reward, and G",
+  "thumb": "thumbs/rl/setup/episode.jpg",
+  "png": "../out/rl/setup/episode.png",
+  "svg": "../out/rl/setup/episode.svg"
+ },
+ {
+  "id": "rl/setup/discount",
+  "name": "discount",
+  "series": "rl",
+  "group": "setup",
+  "idea": "γ^k for γ = 0.9 and 0.99, and the horizon 1/(1 − γ) where each fades",
+  "thumb": "thumbs/rl/setup/discount.jpg",
+  "png": "../out/rl/setup/discount.png",
+  "svg": "../out/rl/setup/discount.svg"
+ },
+ {
+  "id": "rl/maths/markov",
+  "name": "markov",
+  "series": "rl",
+  "group": "maths",
+  "idea": "an MDP: air, pad, crash; fire or coast; the odds of each next state",
+  "thumb": "thumbs/rl/maths/markov.jpg",
+  "png": "../out/rl/maths/markov.png",
+  "svg": "../out/rl/maths/markov.svg"
+ },
+ {
+  "id": "rl/maths/bellman",
+  "name": "bellman",
+  "series": "rl",
+  "group": "maths",
+  "idea": "the backup diagram: max over the four actions of p · (r + γ V(s'))",
+  "thumb": "thumbs/rl/maths/bellman.jpg",
+  "png": "../out/rl/maths/bellman.png",
+  "svg": "../out/rl/maths/bellman.svg"
+ },
+ {
+  "id": "rl/maths/value",
+  "name": "value",
+  "series": "rl",
+  "group": "maths",
+  "idea": "value iteration on a grid lander: the funnel of places it can still land from",
+  "thumb": "thumbs/rl/maths/value.jpg",
+  "png": "../out/rl/maths/value.png",
+  "svg": "../out/rl/maths/value.svg"
+ },
+ {
+  "id": "rl/maths/advantage",
+  "name": "advantage",
+  "series": "rl",
+  "group": "maths",
+  "idea": "A = Q − V: four bars, the policy's average, who's above and who's below",
+  "thumb": "thumbs/rl/maths/advantage.jpg",
+  "png": "../out/rl/maths/advantage.png",
+  "svg": "../out/rl/maths/advantage.svg"
+ },
+ {
+  "id": "rl/maths/bootstrap",
+  "name": "bootstrap",
+  "series": "rl",
+  "group": "maths",
+  "idea": "TD(0), 3-step and Monte Carlo: how many real rewards before trusting a guess",
+  "thumb": "thumbs/rl/maths/bootstrap.jpg",
+  "png": "../out/rl/maths/bootstrap.png",
+  "svg": "../out/rl/maths/bootstrap.svg"
+ },
+ {
+  "id": "rl/value/qlearn",
+  "name": "qlearn",
+  "series": "rl",
+  "group": "value",
+  "idea": "a slice of the grid lander's Q-table: steer in near the pad, save fuel when it's hopeless",
+  "thumb": "thumbs/rl/value/qlearn.jpg",
+  "png": "../out/rl/value/qlearn.png",
+  "svg": "../out/rl/value/qlearn.svg"
+ },
+ {
+  "id": "rl/value/cliff",
+  "name": "cliff",
+  "series": "rl",
+  "group": "value",
+  "idea": "cliff walking: Q-learning takes the edge, SARSA (on-policy, ε = 0.1) the safe way round",
+  "thumb": "thumbs/rl/value/cliff.jpg",
+  "png": "../out/rl/value/cliff.png",
+  "svg": "../out/rl/value/cliff.svg"
+ },
+ {
+  "id": "rl/value/epsilon",
+  "name": "epsilon",
+  "series": "rl",
+  "group": "value",
+  "idea": "ε-greedy decaying from 1 to 0.05, and 160 real draws: random early, greedy late",
+  "thumb": "thumbs/rl/value/epsilon.jpg",
+  "png": "../out/rl/value/epsilon.png",
+  "svg": "../out/rl/value/epsilon.svg"
+ },
+ {
+  "id": "rl/value/dqn",
+  "name": "dqn",
+  "series": "rl",
+  "group": "value",
+  "idea": "a deep Q-network, 8 → 64 → 64 → 4, a real forward pass, take the biggest",
+  "thumb": "thumbs/rl/value/dqn.jpg",
+  "png": "../out/rl/value/dqn.png",
+  "svg": "../out/rl/value/dqn.svg"
+ },
+ {
+  "id": "rl/value/replay",
+  "name": "replay",
+  "series": "rl",
+  "group": "value",
+  "idea": "the replay buffer: a ring of transitions, a write head, a random batch of 8",
+  "thumb": "thumbs/rl/value/replay.jpg",
+  "png": "../out/rl/value/replay.png",
+  "svg": "../out/rl/value/replay.svg"
+ },
+ {
+  "id": "rl/value/target",
+  "name": "target",
+  "series": "rl",
+  "group": "value",
+  "idea": "the target network: a frozen copy the online weights chase, refreshed every C steps",
+  "thumb": "thumbs/rl/value/target.jpg",
+  "png": "../out/rl/value/target.png",
+  "svg": "../out/rl/value/target.svg"
+ },
+ {
+  "id": "rl/value/double",
+  "name": "double",
+  "series": "rl",
+  "group": "value",
+  "idea": "the max of noisy estimates climbs with more actions; double Q-learning stays at 0",
+  "thumb": "thumbs/rl/value/double.jpg",
+  "png": "../out/rl/value/double.png",
+  "svg": "../out/rl/value/double.svg"
+ },
+ {
+  "id": "rl/value/dueling",
+  "name": "dueling",
+  "series": "rl",
+  "group": "value",
+  "idea": "one V, four A's, recombined: q = v + a − a.mean()",
+  "thumb": "thumbs/rl/value/dueling.jpg",
+  "png": "../out/rl/value/dueling.png",
+  "svg": "../out/rl/value/dueling.svg"
+ },
+ {
+  "id": "rl/policy/reinforce",
+  "name": "reinforce",
+  "series": "rl",
+  "group": "policy",
+  "idea": "policy gradient: after a good episode the actions it took get likelier",
+  "thumb": "thumbs/rl/policy/reinforce.jpg",
+  "png": "../out/rl/policy/reinforce.png",
+  "svg": "../out/rl/policy/reinforce.svg"
+ },
+ {
+  "id": "rl/policy/critic",
+  "name": "critic",
+  "series": "rl",
+  "group": "policy",
+  "idea": "actor-critic: the actor acts, the critic judges, one TD error δ teaches both",
+  "thumb": "thumbs/rl/policy/critic.jpg",
+  "png": "../out/rl/policy/critic.png",
+  "svg": "../out/rl/policy/critic.svg"
+ },
+ {
+  "id": "rl/policy/gae",
+  "name": "gae",
+  "series": "rl",
+  "group": "policy",
+  "idea": "GAE: the weight on δ k steps ahead is (γλ)^k, for λ = 0, 0.95 and 1",
+  "thumb": "thumbs/rl/policy/gae.jpg",
+  "png": "../out/rl/policy/gae.png",
+  "svg": "../out/rl/policy/gae.svg"
+ },
+ {
+  "id": "rl/policy/clip",
+  "name": "clip",
+  "series": "rl",
+  "group": "policy",
+  "idea": "PPO's clipped objective for A > 0 and A < 0: flat beyond 1 ± ε",
+  "thumb": "thumbs/rl/policy/clip.jpg",
+  "png": "../out/rl/policy/clip.png",
+  "svg": "../out/rl/policy/clip.svg"
+ },
+ {
+  "id": "rl/policy/entropy",
+  "name": "entropy",
+  "series": "rl",
+  "group": "policy",
+  "idea": "four policies from uniform (H = 1.39) to always-main (H = 0.17)",
+  "thumb": "thumbs/rl/policy/entropy.jpg",
+  "png": "../out/rl/policy/entropy.png",
+  "svg": "../out/rl/policy/entropy.svg"
+ },
+ {
+  "id": "rl/policy/gauss",
+  "name": "gauss",
+  "series": "rl",
+  "group": "policy",
+  "idea": "continuous lander: a tanh-squashed Gaussian over main and lateral throttle",
+  "thumb": "thumbs/rl/policy/gauss.jpg",
+  "png": "../out/rl/policy/gauss.png",
+  "svg": "../out/rl/policy/gauss.svg"
+ },
+ {
+  "id": "rl/policy/twin",
+  "name": "twin",
+  "series": "rl",
+  "group": "policy",
+  "idea": "TD3 / SAC: two noisy critics, the target uses the lower",
+  "thumb": "thumbs/rl/policy/twin.jpg",
+  "png": "../out/rl/policy/twin.png",
+  "svg": "../out/rl/policy/twin.svg"
+ },
+ {
+  "id": "rl/map/zoo",
+  "name": "zoo",
+  "series": "rl",
+  "group": "map",
+  "idea": "the family tree: q-learning, policy, both, model-based; DQN, PPO, SAC in blue",
+  "thumb": "thumbs/rl/map/zoo.jpg",
+  "png": "../out/rl/map/zoo.png",
+  "svg": "../out/rl/map/zoo.svg"
+ },
+ {
+  "id": "rl/map/solved",
+  "name": "solved",
+  "series": "rl",
+  "group": "map",
+  "idea": "a PPO learning curve (simulated): returns, rolling mean, solved at 200",
+  "thumb": "thumbs/rl/map/solved.jpg",
+  "png": "../out/rl/map/solved.png",
+  "svg": "../out/rl/map/solved.svg"
  }
 ];

@@ -12,7 +12,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SERIES = ["core", "minimal", "sensors", "robots", "localization", "drone", "gps", "imu", "vision", "photogrammetry", "still", "lattice", "epic"]
+SERIES = ["core", "minimal", "sensors", "robots", "localization", "drone", "gps", "imu", "vision", "photogrammetry", "still", "lattice", "epic", "rl"]
 THUMBS = ROOT / "gallery/thumbs"
 THUMB_PX = 720  # long edge
 
