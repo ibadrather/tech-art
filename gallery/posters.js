@@ -2649,5 +2649,55 @@ window.POSTERS = [
   "thumb": "thumbs/rl/map/solved.jpg",
   "png": "../out/rl/map/solved.png",
   "svg": "../out/rl/map/solved.svg"
+ },
+ {
+  "id": "soul/witness",
+  "name": "witness",
+  "series": "soul",
+  "group": "",
+  "idea": "96 cameras on a dome around one stone, their sight lines piling up where it is",
+  "thumb": "thumbs/soul/witness.jpg",
+  "png": "../out/soul/witness.png",
+  "svg": "../out/soul/witness.svg"
+ },
+ {
+  "id": "soul/circle",
+  "name": "circle",
+  "series": "soul",
+  "group": "",
+  "idea": "220 photographs on a rising spiral, all turned to a middle that is never drawn",
+  "thumb": "thumbs/soul/circle.jpg",
+  "png": "../out/soul/circle.png",
+  "svg": "../out/soul/circle.svg"
+ },
+ {
+  "id": "soul/become",
+  "name": "become",
+  "series": "soul",
+  "group": "",
+  "idea": "3600 guesses at a seashell, each step a little less wrong, swirling onto its surface",
+  "thumb": "thumbs/soul/become.jpg",
+  "png": "../out/soul/become.png",
+  "svg": "../out/soul/become.svg"
+ },
+ {
+  "id": "soul/unseen",
+  "name": "unseen",
+  "series": "soul",
+  "group": "",
+  "idea": "every photo taken from above: seen from below, the stone thins to nothing where no one looked",
+  "thumb": "thumbs/soul/unseen.jpg",
+  "png": "../out/soul/unseen.png",
+  "svg": "../out/soul/unseen.svg"
+ },
+ {
+  "id": "soul/land",
+  "name": "land",
+  "series": "soul",
+  "group": "",
+  "idea": "a hill flown over in strips; contours appear only where enough photos overlap to agree",
+  "thumb": "thumbs/soul/land.jpg",
+  "png": "../out/soul/land.png",
+  "svg": "../out/soul/land.svg"
  }
 ];

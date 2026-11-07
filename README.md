@@ -351,6 +351,17 @@ the cliff routes are SARSA and Q-learning actually run, the overestimation is sa
 | map | zoo. | the family tree: q-learning, policy, both, model-based; DQN, PPO, SAC in blue |
 | map | solved. | a PPO learning curve (simulated): returns, rolling mean, solved at 200 |
 
+**Soul** (`src/soul.py`, `out/soul/`). Photogrammetry without the pipeline: what it feels like, not how it works.
+No stages, no parameters, a line of poetry for a kicker. Every mark is still computed by the line printed under it.
+
+| Poster | Idea |
+| --- | --- |
+| witness. | 96 cameras on a dome around one stone, their sight lines piling up where it is |
+| circle. | 220 photographs on a rising spiral, all turned to a middle that is never drawn |
+| become. | 3600 guesses at a seashell, each step a little less wrong, swirling onto its surface |
+| unseen. | every photo taken from above: seen from below, the stone thins to nothing where no one looked |
+| land. | a hill flown over in strips; contours appear only where enough photos overlap to agree |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -373,6 +384,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     lattice/                        lattice.py
     epic/                           epic.py
     rl/<theme>/                     rl.py
+    soul/                           soul.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -409,6 +421,7 @@ uv run --no-project --with fonttools --with brotli python src/still.py        # 
 uv run --no-project --with fonttools --with brotli python src/lattice.py      # out/lattice/*.svg
 uv run --no-project --with fonttools --with brotli python src/epic.py         # out/epic/*.svg
 uv run --no-project --with fonttools --with brotli python src/rl.py           # out/rl/<theme>/*.svg
+uv run --no-project --with fonttools --with brotli python src/soul.py         # out/soul/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery
