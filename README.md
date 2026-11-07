@@ -47,6 +47,24 @@ from the maths or code printed on it.
 | legged | stride. | biped LIPM: ZMP hops foot to foot, the CoM that produces it sways between |
 | legged | gait. | walk, trot, pace, bound, gallop: same four legs, different timing |
 
+**Localization** (`src/localization.py`, one folder per domain in `out/localization/`, contact sheet in
+`out/localization/overview.png`). Four ways each to answer "where am I?":
+
+| Domain | Poster | Idea |
+| --- | --- | --- |
+| ground | particles. | Monte Carlo localization in a corridor with three doors: anywhere → three guesses → one |
+| ground | align. | ICP: a new lidar scan paired to its nearest map points and re-fit until they agree |
+| ground | close. | pose graph: odometry misses the start by metres; one loop-closure edge spreads the error away |
+| ground | banana. | heading uncertainty bends the odometry cloud into an arc; the Gaussian mean sits off it |
+| aerial | fuse. | GPS + IMU Kalman filter: σ grows at 100 Hz, snaps back at 1 Hz; the IMU alone runs off as ½bt² |
+| aerial | flow. | optical flow sees v / h: the same picture at 2 m and 6 m, so it needs the rangefinder |
+| aerial | rtk. | carrier phase has 19 cm ticks and no numbers; a third satellite picks the one right crossing |
+| aerial | spread. | same range error, three skies: dilution of precision from 1.4 to 6.8 |
+| underwater | listen. | one ping, three hydrophones: each time difference of arrival is a hyperbola |
+| underwater | beams. | DVL: four beams at 30°, each echo shifted in pitch by the speed along it |
+| underwater | contour. | terrain-relative navigation: slide the measured depth profile over the chart until the hills line up |
+| underwater | bend. | sound bends toward slow water (Munk profile), so travel time × 1500 isn't the straight-line range |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -58,8 +76,10 @@ uv run --no-project --with fonttools --with brotli python src/posters.py     # o
 uv run --no-project --with fonttools --with brotli python src/sensors.py     # out/svg/*.svg (sensors)
 uv run --no-project --with fonttools --with brotli python src/drawio_art.py  # out/drawio/*.drawio + out/svg
 uv run --no-project --with fonttools --with brotli python src/robots.py      # out/robots/<robot>/*.svg
+uv run --no-project --with fonttools --with brotli python src/localization.py # out/localization/<domain>/*.svg
 ./src/render.sh                                                              # out/png/*.png (2160×2700)
 ./src/render.sh out/robots                                                   # a PNG beside every robot SVG
+./src/render.sh out/localization                                             # a PNG beside every localization SVG
 ```
 
 - SVGs are self-contained: fonts are subset and embedded.
