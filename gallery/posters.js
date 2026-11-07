@@ -2119,5 +2119,205 @@ window.POSTERS = [
   "thumb": "thumbs/still/mesh.jpg",
   "png": "../out/still/mesh.png",
   "svg": "../out/still/mesh.svg"
+ },
+ {
+  "id": "lattice/hi",
+  "name": "hi",
+  "series": "lattice",
+  "group": "",
+  "idea": "a humanoid waving: one arm down, one up, motion arcs by the hand",
+  "thumb": "thumbs/lattice/hi.jpg",
+  "png": "../out/lattice/hi.png",
+  "svg": "../out/lattice/hi.svg"
+ },
+ {
+  "id": "lattice/scan",
+  "name": "scan",
+  "series": "lattice",
+  "group": "",
+  "idea": "a one-eyed robot's lidar fan: the wall lights up only inside the beam",
+  "thumb": "thumbs/lattice/scan.jpg",
+  "png": "../out/lattice/scan.png",
+  "svg": "../out/lattice/scan.svg"
+ },
+ {
+  "id": "lattice/rover",
+  "name": "rover",
+  "series": "lattice",
+  "group": "",
+  "idea": "six wheels on a rocker-bogie, a mast camera and a high-gain dish, on sand",
+  "thumb": "thumbs/lattice/rover.jpg",
+  "png": "../out/lattice/rover.png",
+  "svg": "../out/lattice/rover.svg"
+ },
+ {
+  "id": "lattice/quad",
+  "name": "quad",
+  "series": "lattice",
+  "group": "",
+  "idea": "a quadcopter from above: four rotor discs, each blade at its own angle",
+  "thumb": "thumbs/lattice/quad.jpg",
+  "png": "../out/lattice/quad.png",
+  "svg": "../out/lattice/quad.svg"
+ },
+ {
+  "id": "lattice/weld",
+  "name": "weld",
+  "series": "lattice",
+  "group": "",
+  "idea": "an industrial arm at work, a spark of triangles where the torch meets the seam",
+  "thumb": "thumbs/lattice/weld.jpg",
+  "png": "../out/lattice/weld.png",
+  "svg": "../out/lattice/weld.svg"
+ },
+ {
+  "id": "lattice/pup",
+  "name": "pup",
+  "series": "lattice",
+  "group": "",
+  "idea": "a robot dog side on: near legs in ink, far legs in grey, knees in teal",
+  "thumb": "thumbs/lattice/pup.jpg",
+  "png": "../out/lattice/pup.png",
+  "svg": "../out/lattice/pup.svg"
+ },
+ {
+  "id": "lattice/dive",
+  "name": "dive",
+  "series": "lattice",
+  "group": "",
+  "idea": "an underwater robot with its own light, bubbles rising off the stern",
+  "thumb": "thumbs/lattice/dive.jpg",
+  "png": "../out/lattice/dive.png",
+  "svg": "../out/lattice/dive.svg"
+ },
+ {
+  "id": "lattice/sweep",
+  "name": "sweep",
+  "series": "lattice",
+  "group": "",
+  "idea": "a robot vacuum inside the Archimedean spiral it cleans along, older passes fading",
+  "thumb": "thumbs/lattice/sweep.jpg",
+  "png": "../out/lattice/sweep.png",
+  "svg": "../out/lattice/sweep.svg"
+ },
+ {
+  "id": "lattice/hexa",
+  "name": "hexa",
+  "series": "lattice",
+  "group": "",
+  "idea": "a hexapod in a tripod gait: three feet down in ink, three swinging in light",
+  "thumb": "thumbs/lattice/hexa.jpg",
+  "png": "../out/lattice/hexa.png",
+  "svg": "../out/lattice/hexa.svg"
+ },
+ {
+  "id": "lattice/crawl",
+  "name": "crawl",
+  "series": "lattice",
+  "group": "",
+  "idea": "a tracked robot with a camera mast and a gripper arm",
+  "thumb": "thumbs/lattice/crawl.jpg",
+  "png": "../out/lattice/crawl.png",
+  "svg": "../out/lattice/crawl.svg"
+ },
+ {
+  "id": "lattice/launch",
+  "name": "launch",
+  "series": "lattice",
+  "group": "",
+  "idea": "a rocket lifting off a pad of smoke, on black",
+  "thumb": "thumbs/lattice/launch.jpg",
+  "png": "../out/lattice/launch.png",
+  "svg": "../out/lattice/launch.svg"
+ },
+ {
+  "id": "lattice/lander",
+  "name": "lander",
+  "series": "lattice",
+  "group": "",
+  "idea": "a lunar lander on grey ground, Earth over the horizon",
+  "thumb": "thumbs/lattice/lander.jpg",
+  "png": "../out/lattice/lander.png",
+  "svg": "../out/lattice/lander.svg"
+ },
+ {
+  "id": "lattice/heart",
+  "name": "heart",
+  "series": "lattice",
+  "group": "",
+  "idea": "the heart curve (x² + y² − 1)³ − x²y³ ≤ 0, a heartbeat line running through it",
+  "thumb": "thumbs/lattice/heart.jpg",
+  "png": "../out/lattice/heart.png",
+  "svg": "../out/lattice/heart.svg"
+ },
+ {
+  "id": "lattice/owl",
+  "name": "owl",
+  "series": "lattice",
+  "group": "",
+  "idea": "a robot owl on a branch: two lens eyes, ear tufts and a chevron belly",
+  "thumb": "thumbs/lattice/owl.jpg",
+  "png": "../out/lattice/owl.png",
+  "svg": "../out/lattice/owl.svg"
+ },
+ {
+  "id": "lattice/chip",
+  "name": "chip",
+  "series": "lattice",
+  "group": "",
+  "idea": "a microcontroller: a die, 24 pins and traces out to vias",
+  "thumb": "thumbs/lattice/chip.jpg",
+  "png": "../out/lattice/chip.png",
+  "svg": "../out/lattice/chip.svg"
+ },
+ {
+  "id": "lattice/gear",
+  "name": "gear",
+  "series": "lattice",
+  "group": "",
+  "idea": "two meshing spur gears, 12 teeth turning 8, the teeth a clamped cosine",
+  "thumb": "thumbs/lattice/gear.jpg",
+  "png": "../out/lattice/gear.png",
+  "svg": "../out/lattice/gear.svg"
+ },
+ {
+  "id": "lattice/glitch",
+  "name": "glitch",
+  "series": "lattice",
+  "group": "",
+  "idea": "a robot face with some lattice rows read late: shifted, with a colour fringe",
+  "thumb": "thumbs/lattice/glitch.jpg",
+  "png": "../out/lattice/glitch.png",
+  "svg": "../out/lattice/glitch.svg"
+ },
+ {
+  "id": "lattice/pals",
+  "name": "pals",
+  "series": "lattice",
+  "group": "",
+  "idea": "a tall robot holding the hand of a small round one, a heart between them",
+  "thumb": "thumbs/lattice/pals.jpg",
+  "png": "../out/lattice/pals.png",
+  "svg": "../out/lattice/pals.svg"
+ },
+ {
+  "id": "lattice/bloom",
+  "name": "bloom",
+  "series": "lattice",
+  "group": "",
+  "idea": "a robot head used as a flower pot, its eyes turned up at what grew",
+  "thumb": "thumbs/lattice/bloom.jpg",
+  "png": "../out/lattice/bloom.png",
+  "svg": "../out/lattice/bloom.svg"
+ },
+ {
+  "id": "lattice/astro",
+  "name": "astro",
+  "series": "lattice",
+  "group": "",
+  "idea": "a robot in a space helmet, a ringed planet behind",
+  "thumb": "thumbs/lattice/astro.jpg",
+  "png": "../out/lattice/astro.png",
+  "svg": "../out/lattice/astro.svg"
  }
 ];
