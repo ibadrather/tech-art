@@ -1929,5 +1929,195 @@ window.POSTERS = [
   "thumb": "thumbs/photogrammetry/ortho/true.jpg",
   "png": "../out/photogrammetry/ortho/true.png",
   "svg": "../out/photogrammetry/ortho/true.svg"
+ },
+ {
+  "id": "still/iris",
+  "name": "iris",
+  "series": "still",
+  "group": "",
+  "idea": "a six-blade aperture: the hole is the black paper showing through",
+  "thumb": "thumbs/still/iris.jpg",
+  "png": "../out/still/iris.png",
+  "svg": "../out/still/iris.svg"
+ },
+ {
+  "id": "still/frame",
+  "name": "frame",
+  "series": "still",
+  "group": "",
+  "idea": "a viewfinder: four corners, a centre cross and one dot on a third",
+  "thumb": "thumbs/still/frame.jpg",
+  "png": "../out/still/frame.png",
+  "svg": "../out/still/frame.svg"
+ },
+ {
+  "id": "still/gray",
+  "name": "gray",
+  "series": "still",
+  "group": "",
+  "idea": "R, G and B as bar widths 0.299, 0.587, 0.114, and the one gray bar they make",
+  "thumb": "thumbs/still/gray.jpg",
+  "png": "../out/still/gray.png",
+  "svg": "../out/still/gray.svg"
+ },
+ {
+  "id": "still/hist",
+  "name": "hist",
+  "series": "still",
+  "group": "",
+  "idea": "a two-humped histogram and the Otsu threshold computed in its valley",
+  "thumb": "thumbs/still/hist.jpg",
+  "png": "../out/still/hist.png",
+  "svg": "../out/still/hist.svg"
+ },
+ {
+  "id": "still/binary",
+  "name": "binary",
+  "series": "still",
+  "group": "",
+  "idea": "a ramp of twelve grays, and the same ramp after one threshold",
+  "thumb": "thumbs/still/binary.jpg",
+  "png": "../out/still/binary.png",
+  "svg": "../out/still/binary.svg"
+ },
+ {
+  "id": "still/smooth",
+  "name": "smooth",
+  "series": "still",
+  "group": "",
+  "idea": "the 5 × 5 Gaussian kernel as dots, each dot's area its weight",
+  "thumb": "thumbs/still/smooth.jpg",
+  "png": "../out/still/smooth.png",
+  "svg": "../out/still/smooth.svg"
+ },
+ {
+  "id": "still/sharp",
+  "name": "sharp",
+  "series": "still",
+  "group": "",
+  "idea": "the same disc out of focus and in focus",
+  "thumb": "thumbs/still/sharp.jpg",
+  "png": "../out/still/sharp.png",
+  "svg": "../out/still/sharp.svg"
+ },
+ {
+  "id": "still/harris",
+  "name": "harris",
+  "series": "still",
+  "group": "",
+  "idea": "a sliding window: flat changes nothing, an edge one way, a corner every way",
+  "thumb": "thumbs/still/harris.jpg",
+  "png": "../out/still/harris.png",
+  "svg": "../out/still/harris.svg"
+ },
+ {
+  "id": "still/pyramid",
+  "name": "pyramid",
+  "series": "still",
+  "group": "",
+  "idea": "an image pyramid: five levels, each half the size of the last",
+  "thumb": "thumbs/still/pyramid.jpg",
+  "png": "../out/still/pyramid.png",
+  "svg": "../out/still/pyramid.svg"
+ },
+ {
+  "id": "still/match",
+  "name": "match",
+  "series": "still",
+  "group": "",
+  "idea": "two pictures of one scene, the same points joined across, one bad match",
+  "thumb": "thumbs/still/match.jpg",
+  "png": "../out/still/match.png",
+  "svg": "../out/still/match.svg"
+ },
+ {
+  "id": "still/checker",
+  "name": "checker",
+  "series": "still",
+  "group": "",
+  "idea": "a calibration board at an angle and its 7 × 5 inner corners",
+  "thumb": "thumbs/still/checker.jpg",
+  "png": "../out/still/checker.png",
+  "svg": "../out/still/checker.svg"
+ },
+ {
+  "id": "still/box",
+  "name": "box",
+  "series": "still",
+  "group": "",
+  "idea": "a detection: one ball, one box, one score",
+  "thumb": "thumbs/still/box.jpg",
+  "png": "../out/still/box.png",
+  "svg": "../out/still/box.svg"
+ },
+ {
+  "id": "still/segment",
+  "name": "segment",
+  "series": "still",
+  "group": "",
+  "idea": "segmentation: every pixel on a grid answers yes or no",
+  "thumb": "thumbs/still/segment.jpg",
+  "png": "../out/still/segment.png",
+  "svg": "../out/still/segment.svg"
+ },
+ {
+  "id": "still/around",
+  "name": "around",
+  "series": "still",
+  "group": "",
+  "idea": "walk round the object: 24 cameras, one every 15°",
+  "thumb": "thumbs/still/around.jpg",
+  "png": "../out/still/around.png",
+  "svg": "../out/still/around.svg"
+ },
+ {
+  "id": "still/down",
+  "name": "down",
+  "series": "still",
+  "group": "",
+  "idea": "a nadir photo: one camera straight down, the footprint it sees",
+  "thumb": "thumbs/still/down.jpg",
+  "png": "../out/still/down.png",
+  "svg": "../out/still/down.svg"
+ },
+ {
+  "id": "still/stitch",
+  "name": "stitch",
+  "series": "still",
+  "group": "",
+  "idea": "two photos that share a strip, laid over each other",
+  "thumb": "thumbs/still/stitch.jpg",
+  "png": "../out/still/stitch.png",
+  "svg": "../out/still/stitch.svg"
+ },
+ {
+  "id": "still/cross",
+  "name": "cross",
+  "series": "still",
+  "group": "",
+  "idea": "two cameras, two pixel rays, one point where they meet",
+  "thumb": "thumbs/still/cross.jpg",
+  "png": "../out/still/cross.png",
+  "svg": "../out/still/cross.svg"
+ },
+ {
+  "id": "still/cloud",
+  "name": "cloud",
+  "series": "still",
+  "group": "",
+  "idea": "a torus of points, nearer ones bigger and brighter: no surface yet",
+  "thumb": "thumbs/still/cloud.jpg",
+  "png": "../out/still/cloud.png",
+  "svg": "../out/still/cloud.svg"
+ },
+ {
+  "id": "still/mesh",
+  "name": "mesh",
+  "series": "still",
+  "group": "",
+  "idea": "the points joined into triangles: a bump in a sheet, one face filled",
+  "thumb": "thumbs/still/mesh.jpg",
+  "png": "../out/still/mesh.png",
+  "svg": "../out/still/mesh.svg"
  }
 ];

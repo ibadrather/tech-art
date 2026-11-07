@@ -254,6 +254,31 @@ ingest → select → extract → sfm → georef → dense → dsm → ortho. Nu
 | ortho | blend. | multi-band blending: coarse bands cross the seam over a wide zone, fine bands over a pixel |
 | ortho | true. | one building three ways: rectified on a plane, classic on bare ground, true on the DSM with occlusion |
 
+**Still** (`src/still.py`, `out/still/`). Computer vision and photogrammetry at their barest, the minimal
+set's rules kept: one word, one drawing, one line of code, from the light coming in to the mesh coming out.
+
+| Poster | Idea |
+| --- | --- |
+| iris. | a six-blade aperture: the hole is the black paper showing through |
+| frame. | a viewfinder: four corners, a centre cross and one dot on a third |
+| gray. | R, G and B as bar widths 0.299, 0.587, 0.114, and the one gray bar they make |
+| hist. | a two-humped histogram and the Otsu threshold computed in its valley |
+| binary. | a ramp of twelve grays, and the same ramp after one threshold |
+| smooth. | the 5 × 5 Gaussian kernel as dots, each dot's area its weight |
+| sharp. | the same disc out of focus and in focus |
+| harris. | a sliding window: flat changes nothing, an edge one way, a corner every way |
+| pyramid. | an image pyramid: five levels, each half the size of the last |
+| match. | two pictures of one scene, the same points joined across, one bad match |
+| checker. | a calibration board at an angle and its 7 × 5 inner corners |
+| box. | a detection: one ball, one box, one score |
+| segment. | segmentation: every pixel on a grid answers yes or no |
+| around. | walk round the object: 24 cameras, one every 15° |
+| down. | a nadir photo: one camera straight down, the footprint it sees |
+| stitch. | two photos that share a strip, laid over each other |
+| cross. | two cameras, two pixel rays, one point where they meet |
+| cloud. | a torus of points, nearer ones bigger and brighter: no surface yet |
+| mesh. | the points joined into triangles: a bump in a sheet, one face filled |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -272,6 +297,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     imu/<theme>/                    imu.py
     vision/<theme>/                 vision.py
     photogrammetry/<step>/          photogrammetry.py
+    still/                          still.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -304,6 +330,7 @@ uv run --no-project --with fonttools --with brotli python src/gps.py          # 
 uv run --no-project --with fonttools --with brotli python src/imu.py          # out/imu/<theme>/*.svg
 uv run --no-project --with fonttools --with brotli python src/vision.py       # out/vision/<theme>/*.svg
 uv run --no-project --with fonttools --with brotli python src/photogrammetry.py  # out/photogrammetry/<step>/*.svg
+uv run --no-project --with fonttools --with brotli python src/still.py        # out/still/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery
