@@ -124,6 +124,23 @@ class Svg:
         p = [(cx + r * math.cos(angle + k * 2 * math.pi / 3), cy + r * math.sin(angle + k * 2 * math.pi / 3)) for k in range(3)]
         self.poly(p, fill, **kw)
 
+    def arc(self, cx, cy, r, a0, a1, stroke, width=2, n=48, **kw) -> None:
+        """Circular arc from angle a0 to a1 (radians, page coords: y down)."""
+        p = [(cx + r * math.cos(a0 + (a1 - a0) * k / n), cy + r * math.sin(a0 + (a1 - a0) * k / n)) for k in range(n + 1)]
+        self.polyline(p, stroke, width, **kw)
+
+    def clip_begin(self, x, y, w, h) -> None:
+        """Start a group clipped to a rectangle; close it with clip_end()."""
+        self._clips = getattr(self, "_clips", 0) + 1
+        cid = f"clip{self._clips}"
+        self.add(
+            f'<clipPath id="{cid}"><rect x="{_fmt(x)}" y="{_fmt(y)}" width="{_fmt(w)}" height="{_fmt(h)}"/></clipPath>'
+            f'<g clip-path="url(#{cid})">'
+        )
+
+    def clip_end(self) -> None:
+        self.add("</g>")
+
     # --- text ---------------------------------------------------------------
     def text(self, x, y, s, font="head", size=24, fill=P.black, anchor="start", **kw) -> None:
         self.chars[font].update(s)
@@ -226,7 +243,7 @@ KEYWORDS = {
     "template typename true false nullptr static_cast".split(),
 }
 TOKEN_RE = re.compile(
-    r"(?P<comment>#(?!include).*|//.*)|(?P<string>\"[^\"]*\"|'[^']*')|(?P<pre>#include)|(?P<number>\b\d+\.?\d*\b)"
+    r"(?P<comment>#(?!include).*|//.*)|(?P<string>\"[^\"]*\"|'[^']*')|(?P<pre>#include)|(?P<number>\b\d+\.?\d*(?:e-?\d+)?[fFuUlL]?\b)"
     r"|(?P<word>[A-Za-z_]\w*)|(?P<op>[^\sA-Za-z_\d]+)|(?P<space>\s+)"
 )
 CODE_THEME_LIGHT = {"comment": P.black_60, "string": P.teal, "number": P.lavender, "keyword": P.blue, "pre": P.blue,
