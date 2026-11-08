@@ -418,88 +418,6 @@ for _ in range(6):                    # Gauss–Newton
 
 
 # ----------------------------------------------------------------------------
-def chirp() -> Svg:
-    """FMCW radar: a chirp and its echo, the beat signal between them, and the FFT that turns it into ranges."""
-    svg = Svg(P.black)
-    rng = random.Random(2)
-    c0, B, Tc, N = 3e8, 150e6, 50e-6, 256
-    S = B / Tc
-    fs = N / Tc
-    targets = [(4.0, 1.0), (9.5, 0.55), (15.0, 0.32)]  # (range m, amplitude)
-    x = []
-    for n in range(N):
-        t = n / fs
-        v = sum(a * math.cos(2 * math.pi * (2 * R * S / c0) * t + i) for i, (R, a) in enumerate(targets))
-        x.append(v + rng.gauss(0, 0.08))
-
-    # --- schematic: frequency against time, echo delayed by τ (exaggerated) ---
-    x0, x1, yb, yt = M + 30, W - M, 540, 330
-    svg.line(x0, yb + 20, x1, yb + 20, P.blue_40, 1.5)
-    svg.line(x0, yb + 20, x0, yt - 30, P.blue_40, 1.5)
-    svg.text(x0 - 14, yt - 26, "f", "code", 18, P.blue_40, "end")
-    svg.text(x1, yb + 48, "t", "code", 18, P.blue_40, "end")
-    period, ramp, tau = 290, 250, 34
-    for k in range(3):
-        xs = x0 + 20 + k * period
-        svg.line(xs, yb, xs + ramp, yt, P.lavender, 4, stroke_linecap="round")
-        svg.line(xs + tau, yb, xs + tau + ramp, yt, P.teal_60, 4, stroke_linecap="round")
-        svg.line(xs + ramp, yt, xs + ramp, yb, P.lavender, 1.2, opacity="0.4", stroke_dasharray="3 5")
-    xm = x0 + 20 + ramp * 0.55
-    y_tx = yb + (yt - yb) * 0.55
-    y_rx = yb + (yt - yb) * (ramp * 0.55 - tau) / ramp
-    svg.line(xm, y_tx + 3, xm, y_rx - 3, P.white, 2)
-    svg.text(xm - 12, (y_tx + y_rx) / 2 + 6, "f_b", "code", 16, P.white, "end")
-    xs2 = x0 + 20 + period
-    svg.text(xs2 + ramp * 0.7 - 16, yb + (yt - yb) * 0.7, "tx", "codel", 16, P.lavender, "end")
-    svg.text(xs2 + tau + ramp * 0.3 + 16, yb + (yt - yb) * 0.3 + 14, "rx", "codel", 16, P.teal_60)
-
-    # --- the beat (IF) signal, as sampled ---
-    yi = 640
-    svg.text(M, yi + 6, "if", "codel", 16, P.blue_40)
-    svg.polyline([(x0 + (x1 - x0) * n / (N - 1), yi - 18 * v) for n, v in enumerate(x)], P.blue_40, 1.6)
-
-    # --- spectrum: Hann window, zero-padded DFT, range axis ---
-    w = [0.5 - 0.5 * math.cos(2 * math.pi * n / (N - 1)) for n in range(N)]
-    pad = 8
-    Rmax = 20.0
-    kmax = int(Rmax * 2 * S / c0 / (fs / (N * pad))) + 1
-    spec = []
-    for k in range(kmax + 1):
-        acc = sum(w[n] * x[n] * cmath.exp(-2j * math.pi * k * n / (N * pad)) for n in range(N))
-        fb = k * fs / (N * pad)
-        spec.append((c0 * fb / (2 * S), abs(acc)))
-    mx = max(m for _, m in spec)
-    y0s, y1s = 975, 760
-
-    def sp(R, m):
-        return x0 + (x1 - x0) * R / Rmax, y0s + (y1s - y0s) * m / mx
-
-    area = [sp(0, 0)] + [sp(R, m) for R, m in spec if R <= Rmax] + [sp(min(Rmax, spec[-1][0]), 0)]
-    svg.poly(area, P.blue, opacity="0.55")
-    svg.polyline([sp(R, m) for R, m in spec if R <= Rmax], P.lavender, 2.5)
-    svg.line(x0, y0s, x1, y0s, P.blue_40, 1.5)
-    for R in range(0, 21, 5):
-        xx = sp(R, 0)[0]
-        svg.line(xx, y0s, xx, y0s + 8, P.blue_40, 1.5)
-        svg.text(xx, y0s + 30, f"{R} m" if R == 20 else str(R), "codel", 14, P.blue_40, "middle" if R < 20 else "end")
-    peaks = [i for i in range(1, len(spec) - 1) if spec[i][1] > spec[i - 1][1] and spec[i][1] >= spec[i + 1][1] and spec[i][1] > 0.18 * mx]
-    for i in peaks:
-        R, m = spec[i]
-        px_, py_ = sp(R, m)
-        svg.triangle(px_, py_ - 18, 16, P.teal_60, math.pi / 2)
-        svg.text(px_, py_ - 36, f"{R:.1f} m", "code", 16, P.white, "middle")
-
-    svg.frame("chirp.", "FMCW radar · 150 MHz sweep · range from beat", dark=True, title_fill=P.white)
-    code_rule(svg, P.lavender)
-    svg.code(M, CODE_Y, """
-// the beat frequency is the range
-const double S   = B / T_chirp;            // slope, Hz/s
-const double f_b = peak_bin * fs / N;      // FFT peak
-const double R   = c * f_b / (2.0 * S);""", "cpp", 20, dark=True)
-    return svg
-
-
-# ----------------------------------------------------------------------------
 def triangulate() -> Svg:
     """Stereo depth: two cameras' pixel rays cross in a lattice whose cells grow with distance."""
     svg = Svg(P.white)
@@ -548,7 +466,7 @@ def depth(x_left, x_right, f, B):
     return svg
 
 
-SENSORS = [feel, ping, count, project, orient, locate, chirp, triangulate]
+SENSORS = [feel, ping, count, project, orient, locate, triangulate]
 
 if __name__ == "__main__":
     for fn in SENSORS:

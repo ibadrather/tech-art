@@ -47,7 +47,6 @@ one line of code, two or three colours and a lot of empty paper.
 | project. | camera | pinhole model: a cube, its rays, and the picture left on the image plane |
 | orient. | magnetometer | raw ellipse recentred and rescaled into a circle (hard + soft iron) |
 | locate. | GNSS / beacons | range rings and Gauss–Newton walking from a guess to the fix |
-| chirp. | FMCW radar | chirp + echo, the beat signal, and the FFT that turns it into ranges |
 | triangulate. | stereo camera | pixel rays from two cameras cross in a lattice that coarsens with depth |
 
 **Robots** (`src/robots.py`, one folder per kind of robot in `out/robots/`). Each robot type gets three posters, each on something that makes it hard:

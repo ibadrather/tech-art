@@ -31,16 +31,6 @@ window.POSTERS = [
   "svg": "../out/core/settle.svg"
  },
  {
-  "id": "core/hello",
-  "name": "hello",
-  "series": "core",
-  "group": "",
-  "idea": "Python vs C++ on a brand diagonal",
-  "thumb": "thumbs/core/hello.jpg",
-  "png": "../out/core/hello.png",
-  "svg": "../out/core/hello.svg"
- },
- {
   "id": "core/drive",
   "name": "drive",
   "series": "core",
@@ -79,6 +69,26 @@ window.POSTERS = [
   "thumb": "thumbs/core/assemble.jpg",
   "png": "../out/core/assemble.png",
   "svg": "../out/core/assemble.svg"
+ },
+ {
+  "id": "core/carve",
+  "name": "carve",
+  "series": "core",
+  "group": "",
+  "idea": "",
+  "thumb": "thumbs/core/carve.jpg",
+  "png": "../out/core/carve.png",
+  "svg": "../out/core/carve.svg"
+ },
+ {
+  "id": "minimal/hello",
+  "name": "hello",
+  "series": "minimal",
+  "group": "",
+  "idea": "Python vs C++ on a brand diagonal",
+  "thumb": "thumbs/minimal/hello.jpg",
+  "png": "../out/minimal/hello.png",
+  "svg": "../out/minimal/hello.svg"
  },
  {
   "id": "minimal/boot",
@@ -179,16 +189,6 @@ window.POSTERS = [
   "thumb": "thumbs/minimal/rotate.jpg",
   "png": "../out/minimal/rotate.png",
   "svg": "../out/minimal/rotate.svg"
- },
- {
-  "id": "minimal/grid",
-  "name": "grid",
-  "series": "minimal",
-  "group": "",
-  "idea": "an 8 × 8 occupancy grid: dots are free, squares are not, one robot",
-  "thumb": "thumbs/minimal/grid.jpg",
-  "png": "../out/minimal/grid.png",
-  "svg": "../out/minimal/grid.svg"
  },
  {
   "id": "minimal/think",
@@ -299,16 +299,6 @@ window.POSTERS = [
   "thumb": "thumbs/sensors/locate.jpg",
   "png": "../out/sensors/locate.png",
   "svg": "../out/sensors/locate.svg"
- },
- {
-  "id": "sensors/chirp",
-  "name": "chirp",
-  "series": "sensors",
-  "group": "",
-  "idea": "chirp + echo, the beat signal, and the FFT that turns it into ranges",
-  "thumb": "thumbs/sensors/chirp.jpg",
-  "png": "../out/sensors/chirp.png",
-  "svg": "../out/sensors/chirp.svg"
  },
  {
   "id": "sensors/triangulate",
