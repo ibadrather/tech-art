@@ -345,6 +345,20 @@ No stages, no parameters, a line of poetry for a kicker. Every mark is still com
 | unseen. | every photo taken from above: seen from below, the stone thins to nothing where no one looked |
 | land. | a hill flown over in strips; contours appear only where enough photos overlap to agree |
 
+**Mechanisms** (`src/mechanisms.py`, `out/mechanisms/`). The classic linkages and drives: one mechanism, one pose
+in bold, and the path it makes, computed from the links.
+
+| Poster | Mechanism | Idea |
+| --- | --- | --- |
+| couple. | four-bar | Hoeken's linkage: the crank goes round, the coupler stretched to twice its length draws a D |
+| copy. | pantograph | trace a small star, the pen draws it twice the size: pen = pivot + 2(tracer − pivot) |
+| straight. | Peaucellier–Lipkin | a crank on a circle through O, inverted by the rhombus onto an exact straight line |
+| slide. | slider-crank | 24 equal crank turns, 24 unequal piston steps, bunched at the dead centres |
+| yoke. | scotch yoke | a pin on a circle, read from the side by a slotted yoke, is one pure sine |
+| index. | Geneva drive | four slots: the pin turns the wheel a quarter, the disc locks it, a staircase |
+| lift. | cam | rise, dwell, return, dwell: the follower's motion s(θ) wrapped around the base circle |
+| roll. | planetary gear | a 30-tooth planet rolling in a 50-tooth ring, a pen on it drawing five loops |
+
 Palette: Cornflower Blue `#4531CC`, Teal Blue `#448882`, Lavender Blue `#8C8AFE`,
 Rich Black `#0C0C0C`, Cream `#FCF3D1`, and their tints. Fonts: Poppins (titles),
 Fira Code (code), Urbanist (diagram labels). The `edr.` mark sits in the corner triangle.
@@ -368,6 +382,7 @@ out/<series>/[<group>/]<name>.svg   + .png beside it (2160×2700); overview.png 
     epic/                           epic.py
     rl/<theme>/                     rl.py
     soul/                           soul.py
+    mechanisms/                     mechanisms.py
 gallery/                            static browser for everything in out/
 ```
 
@@ -405,6 +420,7 @@ uv run --no-project --with fonttools --with brotli python src/mosaic.py       # 
 uv run --no-project --with fonttools --with brotli python src/epic.py         # out/epic/*.svg
 uv run --no-project --with fonttools --with brotli python src/rl.py           # out/rl/<theme>/*.svg
 uv run --no-project --with fonttools --with brotli python src/soul.py         # out/soul/*.svg
+uv run --no-project --with fonttools --with brotli python src/mechanisms.py   # out/mechanisms/*.svg
 ./src/render.sh                                                               # a PNG beside every SVG in out/
 ./src/render.sh out/drone                                                     # only under out/drone
 python3 src/gallery.py                                                        # refresh the gallery

@@ -2529,5 +2529,85 @@ window.POSTERS = [
   "thumb": "thumbs/soul/land.jpg",
   "png": "../out/soul/land.png",
   "svg": "../out/soul/land.svg"
+ },
+ {
+  "id": "mechanisms/couple",
+  "name": "couple",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "Hoeken's linkage: the crank goes round, the coupler stretched to twice its length draws a D",
+  "thumb": "thumbs/mechanisms/couple.jpg",
+  "png": "../out/mechanisms/couple.png",
+  "svg": "../out/mechanisms/couple.svg"
+ },
+ {
+  "id": "mechanisms/copy",
+  "name": "copy",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "trace a small star, the pen draws it twice the size: pen = pivot + 2(tracer − pivot)",
+  "thumb": "thumbs/mechanisms/copy.jpg",
+  "png": "../out/mechanisms/copy.png",
+  "svg": "../out/mechanisms/copy.svg"
+ },
+ {
+  "id": "mechanisms/straight",
+  "name": "straight",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "a crank on a circle through O, inverted by the rhombus onto an exact straight line",
+  "thumb": "thumbs/mechanisms/straight.jpg",
+  "png": "../out/mechanisms/straight.png",
+  "svg": "../out/mechanisms/straight.svg"
+ },
+ {
+  "id": "mechanisms/slide",
+  "name": "slide",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "24 equal crank turns, 24 unequal piston steps, bunched at the dead centres",
+  "thumb": "thumbs/mechanisms/slide.jpg",
+  "png": "../out/mechanisms/slide.png",
+  "svg": "../out/mechanisms/slide.svg"
+ },
+ {
+  "id": "mechanisms/yoke",
+  "name": "yoke",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "a pin on a circle, read from the side by a slotted yoke, is one pure sine",
+  "thumb": "thumbs/mechanisms/yoke.jpg",
+  "png": "../out/mechanisms/yoke.png",
+  "svg": "../out/mechanisms/yoke.svg"
+ },
+ {
+  "id": "mechanisms/index",
+  "name": "index",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "four slots: the pin turns the wheel a quarter, the disc locks it, a staircase",
+  "thumb": "thumbs/mechanisms/index.jpg",
+  "png": "../out/mechanisms/index.png",
+  "svg": "../out/mechanisms/index.svg"
+ },
+ {
+  "id": "mechanisms/lift",
+  "name": "lift",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "rise, dwell, return, dwell: the follower's motion s(θ) wrapped around the base circle",
+  "thumb": "thumbs/mechanisms/lift.jpg",
+  "png": "../out/mechanisms/lift.png",
+  "svg": "../out/mechanisms/lift.svg"
+ },
+ {
+  "id": "mechanisms/roll",
+  "name": "roll",
+  "series": "mechanisms",
+  "group": "",
+  "idea": "a 30-tooth planet rolling in a 50-tooth ring, a pen on it drawing five loops",
+  "thumb": "thumbs/mechanisms/roll.jpg",
+  "png": "../out/mechanisms/roll.png",
+  "svg": "../out/mechanisms/roll.svg"
  }
 ];
