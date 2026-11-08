@@ -1,6 +1,10 @@
-"""Six minimal robotics posters, each drawn from the maths or code it shows.
+"""Core: the robotics stack, one poster a step, each drawn from the maths or code it shows.
 
-Run:  uv run --no-project --with fonttools --with brotli python src/posters.py
+see. carve. plan. drive. reach. settle. (connect. and assemble. are in drawio_art.py)
+
+The layout constants and helpers here (ART, CODE_Y, fit, code_rule) are shared by every other series.
+
+Run:  uv run --no-project --with fonttools --with brotli python src/posters.py [name ...]
 """
 
 from __future__ import annotations
@@ -162,6 +166,89 @@ for (int i = 0; i < n; ++i) {
 
 
 # ----------------------------------------------------------------------------
+def carve() -> Svg:
+    """Occupancy mapping: each lidar ray lowers the log-odds of the cells it crosses and raises the one it hits."""
+    svg = Svg(P.cream)
+    rng = random.Random(5)
+    walls = [(0, 0), (14, 0), (14, 11), (0, 11)]
+    segs = list(zip(walls, walls[1:] + walls[:1]))
+    segs += [((6, 0), (6, 4.4)), ((6, 6.6), (6, 11)), ((8, 6), (14, 6))]  # a door at x = 6, a gap into the top right
+    for x0, y0, x1, y1 in ((10, 1.8, 11.6, 3.0), (2.0, 2.0, 2.7, 2.7)):  # a cabinet and a pillar
+        b = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+        segs += list(zip(b, b[1:] + b[:1]))
+    circles = [((3.0, 8.0), 0.8), ((12.0, 9.0), 0.5), ((9.2, 2.2), 0.35)]
+
+    # the route: corner-cut waypoints, resampled every 5 cm, one scan every 0.5 m
+    route = [(1.6, 4.0), (3.6, 5.6), (6.0, 5.5), (8.4, 4.2), (10.6, 4.4), (12.2, 4.9)]
+    for _ in range(3):
+        route = [route[0]] + [p for a, b in zip(route, route[1:])
+                              for p in ((0.75 * a[0] + 0.25 * b[0], 0.75 * a[1] + 0.25 * b[1]),
+                                        (0.25 * a[0] + 0.75 * b[0], 0.25 * a[1] + 0.75 * b[1]))] + [route[-1]]
+    path = [route[0]]
+    for a, b in zip(route, route[1:]):
+        n = max(1, int(math.dist(a, b) / 0.05))
+        path += [(a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n) for k in range(1, n + 1)]
+    scans = path[::10] + ([path[-1]] if (len(path) - 1) % 10 else [])
+
+    res, nx, ny, rmax = 0.25, 57, 45, 4.5  # cell (r, c) is centred on (c·res, r·res), so the walls run down cell centres
+    l_occ, l_free = 0.85, -0.4
+    L = [[0.0] * nx for _ in range(ny)]
+    last = []
+    for o in scans:
+        last = []
+        for k in range(180):
+            th = 2 * math.pi * (k + 0.5) / 180
+            d = (math.cos(th), math.sin(th))
+            ts = [_ray_segment(o, d, a, b) for a, b in segs] + [_ray_circle(o, d, c, r) for c, r in circles]
+            t = min(x for x in ts if x is not None) * (1 + rng.gauss(0, 0.01))
+            hit = t <= rmax
+            t = min(t, rmax)
+            crossed = {(round((o[1] + s * d[1]) / res), round((o[0] + s * d[0]) / res))
+                       for s in (j * res / 3 for j in range(int((t - res / 2) / (res / 3))))}
+            end = (round((o[1] + t * d[1]) / res), round((o[0] + t * d[0]) / res))
+            for r, c in crossed - {end}:
+                if 0 <= r < ny and 0 <= c < nx:
+                    L[r][c] = max(-4.0, L[r][c] + l_free)
+            if hit and 0 <= end[0] < ny and 0 <= end[1] < nx:
+                L[end[0]][end[1]] = min(4.0, L[end[0]][end[1]] + l_occ)
+            last.append((o[0] + t * d[0], o[1] + t * d[1]))
+
+    cs = 16
+    ox, oy = (W - nx * cs) / 2, 292
+
+    def px(p):  # metres (y up) -> page
+        return ox + (p[0] / res + 0.5) * cs, oy + (ny - 0.5 - p[1] / res) * cs
+
+    for r in range(ny):
+        for c in range(nx):
+            x, y, l = ox + c * cs, oy + (ny - 1 - r) * cs, L[r][c]
+            if l > 0.5:
+                svg.rect(x + 1, y + 1, cs - 2, cs - 2, P.black)
+            elif l < -0.2:
+                svg.rect(x, y, cs, cs, P.blue_20, opacity=f"{min(1.0, 0.25 - l / 2.4):.2f}")
+            else:
+                svg.circle(x + cs / 2, y + cs / 2, 1.3, P.black_20)
+    o = px(scans[-1])
+    for i, h in enumerate(last):
+        if i % 3 == 0:
+            svg.line(*o, *px(h), P.lavender, 1, opacity=0.55)
+    svg.polyline([px(p) for p in path], P.teal, 4)
+    for p in scans[:-1]:
+        svg.circle(*px(p), 4, P.teal)
+    a, b = px(path[-12]), px(path[-1])
+    svg.triangle(*o, 40, P.blue, math.atan2(b[1] - a[1], b[0] - a[0]))
+
+    svg.frame("carve.", "occupancy mapping · log-odds, one ray at a time")
+    code_rule(svg)
+    svg.code(M, CODE_Y, """
+for cell in cells_along(ray):
+    L[cell] += l_free          # the beam passed through
+L[hit] += l_occ                # and stopped here
+p = 1 - 1 / (1 + exp(L))       # odds back to probability""", "py", 21)
+    return svg
+
+
+# ----------------------------------------------------------------------------
 def settle() -> Svg:
     """Closed-loop step responses of one plant under three PID tunings."""
     svg = Svg(P.cream)
@@ -201,8 +288,7 @@ def settle() -> Svg:
         svg.polyline([px(t, v) for t, v in pts_], col, w)
     lx, ly = x0, 970
     for i, (_, col, w, label) in enumerate([curves[2], curves[0], curves[1]]):
-        y = ly + i * 0
-        xx = lx + i * 290
+        y, xx = ly, lx + i * 290
         svg.rect(xx, y - 6, 28, 7 if col != P.teal else 9, col)
         svg.text(xx + 40, y + 2, label, "codel", 15, P.black_80)
 
@@ -217,40 +303,18 @@ u = kp*e + ki*i + kd*d   # one line, every robot""", "py", 21)
 
 
 # ----------------------------------------------------------------------------
-def hello() -> Svg:
-    """Two languages, one robot: a diagonal split like the brand's triangles."""
-    svg = Svg(P.black)
-    svg.poly([(0, 0), (W, 0), (0, H)], P.blue)
-    svg.text(M, 360, ">>>", "code", 24, P.lavender_60)
-    svg.code(M, 430, 'print("hello, robot")', "py", 44, dark=True)
-    svg.text(M, 496, "# python", "codel", 20, P.blue_40)
-
-    x = 400
-    svg.text(x, 860, "// c++", "codel", 20, P.black_60)
-    svg.code(x, 920, r'''
-#include <iostream>
-
-int main() {
-    std::cout << "hello, robot\n";
-}''', "cpp", 24, dark=True)
-    svg.rect(x + 22, 920 + 4 * 24 * 1.55 - 22, 13, 27, P.teal)  # cursor after the brace
-    svg.frame("hello.", "two languages, one robot", dark=True, title_fill=P.white)
-    return svg
-
-
-# ----------------------------------------------------------------------------
 def drive() -> Svg:
     """A differential-drive robot following a wandering path: two wheel tracks and its poses."""
     svg = Svg(P.cream)
     Lw = 0.22
     x = y = 0.0
-    th = 0.3
+    th = 0.25
     dt = 0.01
     path, left, right, poses = [], [], [], []
     for k in range(int(26 / dt)):
         t = k * dt
-        v_l = 1.0 - 0.85 * math.sin(0.62 * t) * 0.4 - 0.25 * math.sin(0.23 * t + 0.4)
-        v_r = 1.0 + 0.85 * math.sin(0.62 * t) * 0.4 + 0.25 * math.sin(0.23 * t + 0.4)
+        steer = 0.10 * math.cos(0.62 * t) + 0.02 * math.cos(0.23 * t)  # zero-mean, so it meanders instead of spiralling
+        v_l, v_r = 1.0 - steer, 1.0 + steer
         v, w = (v_r + v_l) / 2, (v_r - v_l) / Lw
         x += v * math.cos(th) * dt
         y += v * math.sin(th) * dt
@@ -265,10 +329,14 @@ def drive() -> Svg:
     f = fit(left + right, pad=30)
     svg.polyline([f(p) for p in left], P.blue, 2.5)
     svg.polyline([f(p) for p in right], P.teal, 2.5)
-    for i, (px_, py_, th_) in enumerate(poses[1:], 1):
-        c = f((px_, py_))
-        svg.triangle(*c, 30, P.black if i < len(poses) - 1 else P.blue, -th_, opacity=1)
     last = f(path[-1])
+    drawn = [last]
+    for px_, py_, th_ in poses[1:]:
+        c = f((px_, py_))
+        if min(math.dist(c, d) for d in drawn) < 46:
+            continue
+        drawn.append(c)
+        svg.triangle(*c, 30, P.black, -th_)
     svg.triangle(*last, 52, P.blue, -th)
 
     svg.frame("drive.", "differential drive · two wheels, one path")
@@ -370,9 +438,12 @@ while open_set:
     return svg
 
 
-POSTERS = [reach, see, settle, hello, drive, plan]
+POSTERS = [see, carve, plan, drive, reach, settle]
 
 if __name__ == "__main__":
+    want = set(sys.argv[1:])
     for fn in POSTERS:
+        if want and fn.__name__ not in want:
+            continue
         out = fn().save(fn.__name__, "core")
         print(out.relative_to(Path(__file__).resolve().parents[1]), f"{out.stat().st_size // 1024} KB")

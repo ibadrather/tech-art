@@ -1,10 +1,10 @@
 """Minimal posters: one word, one drawing, one line of code. Lots of empty paper.
 
-The quiet siblings of hello. build. plan. assemble.: every poster keeps to two or three brand
-colours and a single idea from the first week of building a robot.
+The quiet siblings of the core set: every poster keeps to two or three brand colours and a single
+idea from the first week of building a robot. hello. opens the set and bye. closes it.
 
-boot. blink. zero. loop. step. grip. stop. charge.
-go. rotate. grid. think. debug. commit. rest. bye.
+hello. boot. blink. zero. loop. step. grip. stop.
+charge. go. rotate. think. debug. commit. rest. bye.
 
 Run:  uv run --no-project --with fonttools --with brotli python src/minimal.py [name ...]
 """
@@ -34,6 +34,27 @@ def bezier(p0, p1, p2, p3, n=80):
 
 
 # ----------------------------------------------------------------------------
+def hello() -> Svg:
+    """Two languages, one robot: a diagonal split like the brand's triangles."""
+    svg = Svg(P.black)
+    svg.poly([(0, 0), (W, 0), (0, H)], P.blue)
+    svg.text(M, 360, ">>>", "code", 24, P.lavender_60)
+    svg.code(M, 430, 'print("hello, robot")', "py", 44, dark=True)
+    svg.text(M, 496, "# python", "codel", 20, P.blue_40)
+
+    x = 400
+    svg.text(x, 860, "// c++", "codel", 20, P.black_60)
+    svg.code(x, 920, r'''
+#include <iostream>
+
+int main() {
+    std::cout << "hello, robot\n";
+}''', "cpp", 24, dark=True)
+    svg.rect(x + 22, 920 + 4 * 24 * 1.55 - 22, 13, 27, P.teal)  # cursor after the brace
+    svg.frame("hello.", "two languages, one robot", dark=True, title_fill=P.white)
+    return svg
+
+
 def boot() -> Svg:
     """Power on: one command, three checks, a cursor."""
     svg = Svg(P.black)
@@ -223,27 +244,6 @@ R = [[cos(θ), -sin(θ)],
     return svg
 
 
-def grid() -> Svg:
-    """An 8 × 8 occupancy grid: dots are free, squares are not."""
-    svg = Svg(P.white)
-    n, cs = 8, 66
-    ox, oy = CX - n * cs / 2, CY - n * cs / 2
-    occ = {(1, 2), (2, 2), (3, 2), (4, 2), (5, 5), (5, 6), (5, 7), (2, 5)}
-    for r in range(n):
-        for c in range(n):
-            x, y = ox + c * cs, oy + r * cs
-            if (r, c) in occ:
-                svg.rect(x + 3, y + 3, cs - 6, cs - 6, P.black)
-            else:
-                svg.circle(x + cs / 2, y + cs / 2, 2.6, P.black_20)
-    svg.triangle(ox + 1.5 * cs, oy + 6.5 * cs, 40, P.blue, -math.pi / 2)
-
-    svg.frame("grid.", "occupancy · 0 is free, 1 is not")
-    code_rule(svg)
-    svg.code(M, CODE_Y, "grid[y][x] = 1   # occupied", "py", 22)
-    return svg
-
-
 def think() -> Svg:
     """A tiny network: 3 in, 4 hidden, 2 out."""
     svg = Svg(P.black)
@@ -343,7 +343,7 @@ def bye() -> Svg:
     return svg
 
 
-POSTERS = [boot, blink, zero, loop, step, grip, stop, charge, go, rotate, grid, think, debug, commit, rest, bye]
+POSTERS = [hello, boot, blink, zero, loop, step, grip, stop, charge, go, rotate, think, debug, commit, rest, bye]
 
 if __name__ == "__main__":
     want = set(sys.argv[1:])

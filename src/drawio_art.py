@@ -1,4 +1,4 @@
-"""Two posters drawn in draw.io: a robot node graph and a rover spec sheet.
+"""Two core posters drawn in draw.io: a robot node graph and a rover spec sheet.
 
 Each poster is written as an editable .drawio file, exported to SVG with the draw.io CLI, and then
 the brand fonts (Poppins, Fira Code, Urbanist) are embedded into that SVG, because the CLI only uses
@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from artkit import BRAND, CANVAS, CODE_THEME_LIGHT, P, ROOT, _font_face, tokenize  # noqa: E402
 
 W, H, M = CANVAS.width, CANVAS.height, CANVAS.margin
-FAMILIES = {"head": "Poppins", "code": "Fira Code", "diag": "Urbanist"}
+FAMILIES = {"head": "Poppins", "code": "Fira Code", "codel": "Fira Code Regular", "diag": "Urbanist"}
 
 
 def data_uri(path: Path, fill: str | None = None) -> str:
@@ -79,7 +79,7 @@ class Drawio:
 
     def frame(self, title: str, kicker: str):
         self.text(M - 2, M - 8, 700, 120, title, "head", 92, P.blue)
-        self.text(M + 4, M + 101, 800, 30, kicker, "code", 20, P.black_60)
+        self.text(M + 4, M + 101, 800, 30, kicker, "codel", 20, P.black_60)
         tri = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 143">'
                f'<polygon points="165,0 165,143 0,143" fill="{P.blue_20}"/></svg>')
         self.vertex(W - 165, H - 143, 165, 143, "",
